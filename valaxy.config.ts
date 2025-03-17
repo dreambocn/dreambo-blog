@@ -19,7 +19,19 @@ export default defineValaxyConfig<UserThemeConfig>({
       enable: true,
       title: '梦博的小站',
     },
-
+    bg_image: {
+      enable: true,
+      url: 'https://s2.loli.net/2025/03/18/YQUfI64wXgsaL1W.jpg',
+      dark: 'https://s2.loli.net/2025/03/18/YQUfI64wXgsaL1W.jpg',
+      opacity: 0.8,
+    },
+    colors: {
+      primary: "#00bfff",
+    },
+    fireworks: {
+      enable: true,
+      colors: ['#00008b', '#4682b4', '#add8e6','#00bfff']
+    },
     pages: [
       {
         name: '我的小伙伴们',
@@ -36,10 +48,10 @@ export default defineValaxyConfig<UserThemeConfig>({
     ],
 
     footer: {
-      since: 2016,
+      since: 2024,
       beian: {
         enable: true,
-        icp: '苏ICP备17038157号',
+        icp: '津ICP备2024020482号-1',
       },
     },
   },
