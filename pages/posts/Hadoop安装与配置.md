@@ -524,7 +524,7 @@ top: 1
 
 ​	保存后退出赋予脚本执行权限
 
-![image-20241127172858582](C:\Users\DreamBo\AppData\Roaming\Typora\typora-user-images\image-20241127172858582.png)
+![image-20241127172858582](https://s2.loli.net/2025/03/24/BD5I4pVnivZGCx8.png)
 
 2. 查看三台服务器Java进程脚本：jpsall
 
@@ -559,7 +559,7 @@ top: 1
 
       编辑文件` sudo vim /etc/ntp.conf`
 
-      <img src="C:\Users\DreamBo\AppData\Roaming\Typora\typora-user-images\image-20241128112425376.png" alt="image-20241128112425376" style="zoom:67%;" />
+      <img src="https://s2.loli.net/2025/03/24/v3byKGxMe7QlN1W.png" alt="image-20241128112425376" style="zoom:67%;" />
 
    3. 修改hadoop101的/etc/sysconfig/ntpd 文件
 
