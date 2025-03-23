@@ -185,7 +185,7 @@ top: 1
 
 9. 修改节点数据值
 
-   ![image-20241211165956401](C:\Users\DreamBo\AppData\Roaming\Typora\typora-user-images\image-20241211165956401.png)
+   ![image-20241211165956401](https://s2.loli.net/2025/03/24/drwz7yPJcZuWake.png)
 
 10. 节点的值变化监听 
 

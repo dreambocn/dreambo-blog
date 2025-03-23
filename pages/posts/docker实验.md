@@ -194,10 +194,6 @@ docker build -t tcpserver:1.0 .
 
 ![image-20240922172639813](https://s2.loli.net/2024/09/22/lAG2dsR9H6Ktc17.png)
 
-查看当前拥有的镜像
-
-![image-20240922172654026](C:\Users\DreamBo\AppData\Roaming\Typora\typora-user-images\image-20240922172654026.png)
-
 ## 四、运行自制镜像
 
 启动tcpserver容器
