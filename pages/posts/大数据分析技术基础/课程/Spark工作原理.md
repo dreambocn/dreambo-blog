@@ -23,15 +23,15 @@ MapReduce缺点：
 
 RDD：一个数据集可分散在多个机器（分区），有弹性（可容错），不可变，其中元素可并行计算。
 1. 弹性
-	存储的弹性：内存与磁盘的自动切换； 
-	容错的弹性：数据丢失可以自动恢复； 
-	计算的弹性：计算出错重试机制； 
-	分片的弹性：可根据需要重新分片。 
-2. 分布式 
+	存储的弹性：内存与磁盘的自动切换；
+	容错的弹性：数据丢失可以自动恢复；
+	计算的弹性：计算出错重试机制；
+	分片的弹性：可根据需要重新分片。
+2. 分布式
 	数据存储在大数据集群不同节点上
-3. 数据集 
-	RDD封装了计算逻辑，并不保存数据 
-4. 数据抽象 
+3. 数据集
+	RDD封装了计算逻辑，并不保存数据
+4. 数据抽象
 	RDD是一个抽象类，需要子类具体实现
 5. 不可变
 	RDD封装了计算逻辑，是不可以改变的，想要改变，只能产生新的RDD，在新的RDD里面封装计算逻辑
@@ -42,7 +42,7 @@ RDD特性：
 2. 一个计算每个分区的函数
 3. RDD之间的依赖关系
 4. 一个Partitioner，即RDD的分片函数，控制分区的数据流向(==键值对==)
-5. 一个列表，存储存取每个Partition的优先位置 移动数据不如移动计算，除非资源不够
+5. 一个列表，存储存取每个Partition的优先位置移动数据不如移动计算，除非资源不够
 
 ### 计算模型
 [[数据处理的一般模式#Spark编程模式]]
@@ -51,39 +51,39 @@ RDD操作算子
 
 | 操作算子                                                                      | 含义                                     |
 | ------------------------------------------------------------------------- | -------------------------------------- |
-| parallelize(seq,[numSlices])                                              | 从内存集合创建RDD                             |
-| textFile(path,[minPartitions])                                            | 读取HDFS兼容的文件系统下的 文件来创建RDD               |
-| wholeTextFiles(path,[minPartitions])                                      | 读取HDFS兼容的文件系统下的 文件夹中的所有文件来创建RDD        |
-| hadoopFile(path,inputFormatClass,<br>keyClass,valueClass,[minPartitions]) | 读取HDFS兼容的文件系统下拥有任意inputFormat的文件来创建RDD |
+| parallelize                                              | 从内存集合创建RDD                            |
+| textFile                                            | 读取HDFS兼容的文件系统下的文件来创建RDD              |
+| wholeTextFiles                                      | 读取HDFS兼容的文件系统下的文件夹中的所有文件来创建RDD        |
+| hadoopFile | 读取HDFS兼容的文件系统下拥有任意inputFormat的文件来创建RDD |
 
 转换：描述RDD的转换逻辑，提供对RDD进行变换的功能
 
-| 转换操作                                   | 含义                                                                   |
-| -------------------------------------- | -------------------------------------------------------------------- |
-| map(func)                              | 对RDD中的每个记录都使用func进行转换，返回一个新的RDD                                      |
-| filter(func)                           | 过滤出对RDD中的每个记录都使用func后返回值为true的记录                                     |
-| flatMap(func)                          | 与map类似，但是对RDD中的每个记录可以映射成0个或多个新的记录                                    |
-| mapPartitions(func)                    | 与map类似，但是mapPartitions中的func是对每个分区进行操作                               |
-| union(otherRDD)                        | 两个RDD取并集得到一个新的RDD                                                    |
-| intersect(otherRDD)                    | 两个RDD取交集得到一个新的RDD                                                    |
-| groupByKey([numPartitions])            | 将[K，V]键值对按键分组，返回一个[K,Iterable<V>]对组成的新的RDD                           |
-| reduceByKey(func, [numPartitions])     | 将键值对按键聚合，在每一个键的所有值上<br>使用func，返回一个[K，V]对组成的新的RDD                     |
-| sortByKey([ascending], [numPartitions] | 将键值对按键进行排序，返回一个新的RDD                                                 |
-| join(otherRDD, [numPartitions])        | [K，V1]和[K，V2]分别属于两个RDD，<br>返回一个[K，（V1，V2)]组成的RDD                     |
-| cogroup(otherRDD,[numPartitions])      | [K，V1]和[K，V2]分别属于两个RDD，返回一个<br>[K,（Iterable<V1>，Iterable<V2>）]组成的RDD |
+| 转换操作      | 含义                                                         |
+| ------------- | ------------------------------------------------------------ |
+| map           | 对RDD中的每个记录都使用func进行转换，返回一个新的RDD         |
+| filter        | 过滤出对RDD中的每个记录都使用func后返回值为true的记录        |
+| flatMap       | 与map类似，但是对RDD中的每个记录可以映射成0个或多个新的记录  |
+| mapPartitions | 与map类似，但是mapPartitions中的func是对每个分区进行操作     |
+| union         | 两个RDD取并集得到一个新的RDD                                 |
+| intersect     | 两个RDD取交集得到一个新的RDD                                 |
+| groupByKey    | 将[K，V]键值对按键分组，返回一个[K,Iterable]对组成的新的RDD |
+| reduceByKey   | 将键值对按键聚合，在每一个键的所有值上<br/>使用func，返回一个[K，V]对组成的新的RDD |
+| sortByKey     | 将键值对按键进行排序，返回一个新的RDD                        |
+| join          | [K，V1]和[K，V2]分别属于两个RDD，<br/>返回一个[K，（V1，V2)]组成的RDD |
+| cogroup       | [K，V1]和[K，V2]分别属于两个RDD，返回一个<br/>[K,（Iterable，Iterable）]组成的RDD |
 
 行动(Action)：标志转换结束，触发DAG生成
 
-| 转换                   | 含义                                                     |
-| -------------------- | ------------------------------------------------------ |
-| reduce(func)         | 对RDD中的记录按func聚合，这个func必须满足交换律和结合律                      |
-| collect()            | 收集RDD中的所有记录到driver中，返回一个Array                          |
-| count()              | 返回RDD中记录的个数                                            |
-| first()              | 返回RDD中的第一个记录                                           |
-| take(n)              | 返回RDD中的前n个记录                                           |
-| saveAsTextFile(path) | 将RDD中的记录以文本文件的形式写入本地文件系统、HDFS或任何其他Hadoop支持的文件系统中的给定目录中 |
-| countByKey()         | 按key统计计数，返回一个由[K，Long]组成的Map                           |
-| foreach(func)        | 对RDD中的每个记录都使用func                                      |
+| 转换           | 含义                                                         |
+| -------------- | ------------------------------------------------------------ |
+| reduce         | 对RDD中的记录按func聚合，这个func必须满足交换律和结合律      |
+| collect()      | 收集RDD中的所有记录到driver中，返回一个Array                 |
+| count()        | 返回RDD中记录的个数                                          |
+| first()        | 返回RDD中的第一个记录                                        |
+| take(n)        | 返回RDD中的前n个记录                                         |
+| saveAsTextFile | 将RDD中的记录以文本文件的形式写入本地文件系统、HDFS或任何其他Hadoop支持的文件系统中的给定目录中 |
+| countByKey     | 按key统计计数，返回一个由[K，Long]组成的Map                  |
+| foreach        | 对RDD中的每个记录都使用func                                  |
 
 逻辑计算模型：Operator DAG
 - 从算子操作的角度来描述计算的过程
@@ -188,14 +188,18 @@ RDD依赖关系
 	代表了一组关联的、相互之间没有Shuffle依赖关系的任务组成的任务集
 - Task：运行在Executor上的工作单元
 
-逻辑执行角度 
-	一个Application=一个或多个DAG
-	一个DAG=一个或多个Stage 
-	一个Stage=若干窄依赖的RDD操作 
-物理执行角度 
-	一个Application=一个或多个Job 
-	一个Job=一个或多个TaskSet 
-	一个TaskSet=多个没有Shuffle关系的Task
+逻辑执行角度
+	
+- 一个Application=一个或多个DAG
+- 一个DAG=一个或多个Stage
+- 一个Stage=若干窄依赖的RDD操作
+
+物理执行角度
+
+- 一个Application=一个或多个Job
+- 一个Job=一个或多个TaskSet
+- 一个TaskSet=多个没有Shuffle关系的Task
+
 ---
 # 容错机制
 ## 故障类型
