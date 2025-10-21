@@ -6,7 +6,6 @@ categories: SQL 笔记
 tags:
   - SQL
   - 笔记
-top: 1
 ---
 # 复杂的多表查询SQL
 

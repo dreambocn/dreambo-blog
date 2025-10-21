@@ -6,7 +6,6 @@ categories: 云计算与分布式 笔记
 tags:
   - 云计算与分布式
   - 笔记
-top: 1
 ---
 # flume的安装与使用
 

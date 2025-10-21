@@ -6,7 +6,6 @@ categories: 网络 笔记
 tags:
   - 网络
   - 笔记
-top: 1
 ---
 # 图解HTTP
 

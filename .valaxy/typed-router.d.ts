@@ -28,20 +28,314 @@ declare module 'vue-router/auto-routes' {
     '/links/': RouteRecordInfo<'/links/', '/links', Record<never, never>, Record<never, never>>,
     '/page/[page]': RouteRecordInfo<'/page/[page]', '/page/:page', { page: ParamValue<true> }, { page: ParamValue<false> }>,
     '/posts/': RouteRecordInfo<'/posts/', '/posts', Record<never, never>, Record<never, never>>,
-    '/posts/黑猫数据分析': RouteRecordInfo<'/posts/黑猫数据分析', '/posts/黑猫数据分析', Record<never, never>, Record<never, never>>,
-    '/posts/老师任务之复杂的多表查询SQL': RouteRecordInfo<'/posts/老师任务之复杂的多表查询SQL', '/posts/老师任务之复杂的多表查询SQL', Record<never, never>, Record<never, never>>,
-    '/posts/图解HTTP': RouteRecordInfo<'/posts/图解HTTP', '/posts/图解HTTP', Record<never, never>, Record<never, never>>,
-    '/posts/云计算与分布式-存储技术': RouteRecordInfo<'/posts/云计算与分布式-存储技术', '/posts/云计算与分布式-存储技术', Record<never, never>, Record<never, never>>,
-    '/posts/docker实验': RouteRecordInfo<'/posts/docker实验', '/posts/docker实验', Record<never, never>, Record<never, never>>,
-    '/posts/flume的安装与使用': RouteRecordInfo<'/posts/flume的安装与使用', '/posts/flume的安装与使用', Record<never, never>, Record<never, never>>,
-    '/posts/Hadoop安装与配置': RouteRecordInfo<'/posts/Hadoop安装与配置', '/posts/Hadoop安装与配置', Record<never, never>, Record<never, never>>,
-    '/posts/HDFS实验报告': RouteRecordInfo<'/posts/HDFS实验报告', '/posts/HDFS实验报告', Record<never, never>, Record<never, never>>,
-    '/posts/hello-valaxy': RouteRecordInfo<'/posts/hello-valaxy', '/posts/hello-valaxy', Record<never, never>, Record<never, never>>,
-    '/posts/Linux下Kafka的安装与配置': RouteRecordInfo<'/posts/Linux下Kafka的安装与配置', '/posts/Linux下Kafka的安装与配置', Record<never, never>, Record<never, never>>,
-    '/posts/MapReduce': RouteRecordInfo<'/posts/MapReduce', '/posts/MapReduce', Record<never, never>, Record<never, never>>,
-    '/posts/ubuntu常用命令记录': RouteRecordInfo<'/posts/ubuntu常用命令记录', '/posts/ubuntu常用命令记录', Record<never, never>, Record<never, never>>,
-    '/posts/YARN实践': RouteRecordInfo<'/posts/YARN实践', '/posts/YARN实践', Record<never, never>, Record<never, never>>,
-    '/posts/Zookeeper': RouteRecordInfo<'/posts/Zookeeper', '/posts/Zookeeper', Record<never, never>, Record<never, never>>,
+    '/posts/BigData/docker实验': RouteRecordInfo<'/posts/BigData/docker实验', '/posts/BigData/docker实验', Record<never, never>, Record<never, never>>,
+    '/posts/BigData/flume的安装与使用': RouteRecordInfo<'/posts/BigData/flume的安装与使用', '/posts/BigData/flume的安装与使用', Record<never, never>, Record<never, never>>,
+    '/posts/BigData/Hadoop安装与配置': RouteRecordInfo<'/posts/BigData/Hadoop安装与配置', '/posts/BigData/Hadoop安装与配置', Record<never, never>, Record<never, never>>,
+    '/posts/BigData/HDFS实验报告': RouteRecordInfo<'/posts/BigData/HDFS实验报告', '/posts/BigData/HDFS实验报告', Record<never, never>, Record<never, never>>,
+    '/posts/BigData/Linux下Kafka的安装与配置': RouteRecordInfo<'/posts/BigData/Linux下Kafka的安装与配置', '/posts/BigData/Linux下Kafka的安装与配置', Record<never, never>, Record<never, never>>,
+    '/posts/BigData/MapReduce': RouteRecordInfo<'/posts/BigData/MapReduce', '/posts/BigData/MapReduce', Record<never, never>, Record<never, never>>,
+    '/posts/BigData/ubuntu常用命令记录': RouteRecordInfo<'/posts/BigData/ubuntu常用命令记录', '/posts/BigData/ubuntu常用命令记录', Record<never, never>, Record<never, never>>,
+    '/posts/BigData/YARN实践': RouteRecordInfo<'/posts/BigData/YARN实践', '/posts/BigData/YARN实践', Record<never, never>, Record<never, never>>,
+    '/posts/BigData/Zookeeper': RouteRecordInfo<'/posts/BigData/Zookeeper', '/posts/BigData/Zookeeper', Record<never, never>, Record<never, never>>,
+    '/posts/BigData/云计算与分布式-存储技术': RouteRecordInfo<'/posts/BigData/云计算与分布式-存储技术', '/posts/BigData/云计算与分布式-存储技术', Record<never, never>, Record<never, never>>,
+    '/posts/BigData/图解HTTP': RouteRecordInfo<'/posts/BigData/图解HTTP', '/posts/BigData/图解HTTP', Record<never, never>, Record<never, never>>,
+    '/posts/BigData/老师任务之复杂的多表查询SQL': RouteRecordInfo<'/posts/BigData/老师任务之复杂的多表查询SQL', '/posts/BigData/老师任务之复杂的多表查询SQL', Record<never, never>, Record<never, never>>,
+    '/posts/BigData/黑猫数据分析': RouteRecordInfo<'/posts/BigData/黑猫数据分析', '/posts/BigData/黑猫数据分析', Record<never, never>, Record<never, never>>,
+    '/posts/大数据分析技术基础/大实验/实时仓库搭建': RouteRecordInfo<'/posts/大数据分析技术基础/大实验/实时仓库搭建', '/posts/大数据分析技术基础/大实验/实时仓库搭建', Record<never, never>, Record<never, never>>,
+    '/posts/大数据分析技术基础/大实验/数据同步': RouteRecordInfo<'/posts/大数据分析技术基础/大实验/数据同步', '/posts/大数据分析技术基础/大实验/数据同步', Record<never, never>, Record<never, never>>,
+    '/posts/大数据分析技术基础/大实验/数据采集': RouteRecordInfo<'/posts/大数据分析技术基础/大实验/数据采集', '/posts/大数据分析技术基础/大实验/数据采集', Record<never, never>, Record<never, never>>,
+    '/posts/大数据分析技术基础/大实验/离线仓库搭建': RouteRecordInfo<'/posts/大数据分析技术基础/大实验/离线仓库搭建', '/posts/大数据分析技术基础/大实验/离线仓库搭建', Record<never, never>, Record<never, never>>,
+    '/posts/大数据分析技术基础/实验/Flink/Flink编程 DataStreamAPI': RouteRecordInfo<'/posts/大数据分析技术基础/实验/Flink/Flink编程 DataStreamAPI', '/posts/大数据分析技术基础/实验/Flink/Flink编程 DataStreamAPI', Record<never, never>, Record<never, never>>,
+    '/posts/大数据分析技术基础/实验/Flink/Flink编程 Table API&SQL': RouteRecordInfo<'/posts/大数据分析技术基础/实验/Flink/Flink编程 Table API&SQL', '/posts/大数据分析技术基础/实验/Flink/Flink编程 Table API&SQL', Record<never, never>, Record<never, never>>,
+    '/posts/大数据分析技术基础/实验/Flink/Flink部署': RouteRecordInfo<'/posts/大数据分析技术基础/实验/Flink/Flink部署', '/posts/大数据分析技术基础/实验/Flink/Flink部署', Record<never, never>, Record<never, never>>,
+    '/posts/大数据分析技术基础/实验/Hbase/Hbase基础/HBaseShell接口操作': RouteRecordInfo<'/posts/大数据分析技术基础/实验/Hbase/Hbase基础/HBaseShell接口操作', '/posts/大数据分析技术基础/实验/Hbase/Hbase基础/HBaseShell接口操作', Record<never, never>, Record<never, never>>,
+    '/posts/大数据分析技术基础/实验/Hbase/Hbase基础/HBaseWebUI管理': RouteRecordInfo<'/posts/大数据分析技术基础/实验/Hbase/Hbase基础/HBaseWebUI管理', '/posts/大数据分析技术基础/实验/Hbase/Hbase基础/HBaseWebUI管理', Record<never, never>, Record<never, never>>,
+    '/posts/大数据分析技术基础/实验/Hbase/Hbase基础/HBase伪分布式部署': RouteRecordInfo<'/posts/大数据分析技术基础/实验/Hbase/Hbase基础/HBase伪分布式部署', '/posts/大数据分析技术基础/实验/Hbase/Hbase基础/HBase伪分布式部署', Record<never, never>, Record<never, never>>,
+    '/posts/大数据分析技术基础/实验/Hbase/Hbase编程开发1/JavaAPI命名空间操作': RouteRecordInfo<'/posts/大数据分析技术基础/实验/Hbase/Hbase编程开发1/JavaAPI命名空间操作', '/posts/大数据分析技术基础/实验/Hbase/Hbase编程开发1/JavaAPI命名空间操作', Record<never, never>, Record<never, never>>,
+    '/posts/大数据分析技术基础/实验/Hbase/Hbase编程开发1/JavaAPI表操作': RouteRecordInfo<'/posts/大数据分析技术基础/实验/Hbase/Hbase编程开发1/JavaAPI表操作', '/posts/大数据分析技术基础/实验/Hbase/Hbase编程开发1/JavaAPI表操作', Record<never, never>, Record<never, never>>,
+    '/posts/大数据分析技术基础/实验/Hive/Hive概述/HiveCLI命令行接口使用': RouteRecordInfo<'/posts/大数据分析技术基础/实验/Hive/Hive概述/HiveCLI命令行接口使用', '/posts/大数据分析技术基础/实验/Hive/Hive概述/HiveCLI命令行接口使用', Record<never, never>, Record<never, never>>,
+    '/posts/大数据分析技术基础/实验/Hive/Hive概述/Hive的安装部署': RouteRecordInfo<'/posts/大数据分析技术基础/实验/Hive/Hive概述/Hive的安装部署', '/posts/大数据分析技术基础/实验/Hive/Hive概述/Hive的安装部署', Record<never, never>, Record<never, never>>,
+    '/posts/大数据分析技术基础/实验/Hive/HQL之DDL操作/数据库和数据表定义': RouteRecordInfo<'/posts/大数据分析技术基础/实验/Hive/HQL之DDL操作/数据库和数据表定义', '/posts/大数据分析技术基础/实验/Hive/HQL之DDL操作/数据库和数据表定义', Record<never, never>, Record<never, never>>,
+    '/posts/大数据分析技术基础/实验/Hive/HQL之数据查询/HQL多表连接查询': RouteRecordInfo<'/posts/大数据分析技术基础/实验/Hive/HQL之数据查询/HQL多表连接查询', '/posts/大数据分析技术基础/实验/Hive/HQL之数据查询/HQL多表连接查询', Record<never, never>, Record<never, never>>,
+    '/posts/大数据分析技术基础/实验/Hive/HQL高级分析函数/使用HQL窗口函数': RouteRecordInfo<'/posts/大数据分析技术基础/实验/Hive/HQL高级分析函数/使用HQL窗口函数', '/posts/大数据分析技术基础/实验/Hive/HQL高级分析函数/使用HQL窗口函数', Record<never, never>, Record<never, never>>,
+    '/posts/大数据分析技术基础/实验/Spark SQL/SparkRDD': RouteRecordInfo<'/posts/大数据分析技术基础/实验/Spark SQL/SparkRDD', '/posts/大数据分析技术基础/实验/Spark SQL/SparkRDD', Record<never, never>, Record<never, never>>,
+    '/posts/大数据分析技术基础/实验/Spark SQL/实验七 Spark SQL：普通样例类编程': RouteRecordInfo<'/posts/大数据分析技术基础/实验/Spark SQL/实验七 Spark SQL：普通样例类编程', '/posts/大数据分析技术基础/实验/Spark SQL/实验七 Spark SQL：普通样例类编程', Record<never, never>, Record<never, never>>,
+    '/posts/大数据分析技术基础/实验/Spark SQL/实验八 Spark SQL：领域API编程': RouteRecordInfo<'/posts/大数据分析技术基础/实验/Spark SQL/实验八 Spark SQL：领域API编程', '/posts/大数据分析技术基础/实验/Spark SQL/实验八 Spark SQL：领域API编程', Record<never, never>, Record<never, never>>,
+    '/posts/大数据分析技术基础/实验/Spark SQL/实验六 Spark SQL：命令方式': RouteRecordInfo<'/posts/大数据分析技术基础/实验/Spark SQL/实验六 Spark SQL：命令方式', '/posts/大数据分析技术基础/实验/Spark SQL/实验六 Spark SQL：命令方式', Record<never, never>, Record<never, never>>,
+    '/posts/大数据分析技术基础/实验/Spark部署/Spark安装部署：On Yarn模式': RouteRecordInfo<'/posts/大数据分析技术基础/实验/Spark部署/Spark安装部署：On Yarn模式', '/posts/大数据分析技术基础/实验/Spark部署/Spark安装部署：On Yarn模式', Record<never, never>, Record<never, never>>,
+    '/posts/大数据分析技术基础/实验/Spark部署/Spark安装部署：Standalone模式': RouteRecordInfo<'/posts/大数据分析技术基础/实验/Spark部署/Spark安装部署：Standalone模式', '/posts/大数据分析技术基础/实验/Spark部署/Spark安装部署：Standalone模式', Record<never, never>, Record<never, never>>,
+    '/posts/大数据分析技术基础/实验/数据和处理的抽象': RouteRecordInfo<'/posts/大数据分析技术基础/实验/数据和处理的抽象', '/posts/大数据分析技术基础/实验/数据和处理的抽象', Record<never, never>, Record<never, never>>,
+    '/posts/大数据分析技术基础/考试': RouteRecordInfo<'/posts/大数据分析技术基础/考试', '/posts/大数据分析技术基础/考试', Record<never, never>, Record<never, never>>,
+    '/posts/大数据分析技术基础/课程/Spark RDD算子': RouteRecordInfo<'/posts/大数据分析技术基础/课程/Spark RDD算子', '/posts/大数据分析技术基础/课程/Spark RDD算子', Record<never, never>, Record<never, never>>,
+    '/posts/大数据分析技术基础/课程/Spark SQL': RouteRecordInfo<'/posts/大数据分析技术基础/课程/Spark SQL', '/posts/大数据分析技术基础/课程/Spark SQL', Record<never, never>, Record<never, never>>,
+    '/posts/大数据分析技术基础/课程/Spark工作原理': RouteRecordInfo<'/posts/大数据分析技术基础/课程/Spark工作原理', '/posts/大数据分析技术基础/课程/Spark工作原理', Record<never, never>, Record<never, never>>,
+    '/posts/大数据分析技术基础/课程/Spark案例分析': RouteRecordInfo<'/posts/大数据分析技术基础/课程/Spark案例分析', '/posts/大数据分析技术基础/课程/Spark案例分析', Record<never, never>, Record<never, never>>,
+    '/posts/大数据分析技术基础/课程/数据处理的一般模式': RouteRecordInfo<'/posts/大数据分析技术基础/课程/数据处理的一般模式', '/posts/大数据分析技术基础/课程/数据处理的一般模式', Record<never, never>, Record<never, never>>,
+    '/posts/大数据分析技术基础/课程/流式计算模型': RouteRecordInfo<'/posts/大数据分析技术基础/课程/流式计算模型', '/posts/大数据分析技术基础/课程/流式计算模型', Record<never, never>, Record<never, never>>,
+    '/posts/当代数据管理系统/磁盘管理实验作业 1.1': RouteRecordInfo<'/posts/当代数据管理系统/磁盘管理实验作业 1.1', '/posts/当代数据管理系统/磁盘管理实验作业 1/1', Record<never, never>, Record<never, never>>,
+    '/posts/数据结构/绪论': RouteRecordInfo<'/posts/数据结构/绪论', '/posts/数据结构/绪论', Record<never, never>, Record<never, never>>,
+    '/posts/机器学习/线性回归实践': RouteRecordInfo<'/posts/机器学习/线性回归实践', '/posts/机器学习/线性回归实践', Record<never, never>, Record<never, never>>,
+    '/posts/面试八股文/Java基础': RouteRecordInfo<'/posts/面试八股文/Java基础', '/posts/面试八股文/Java基础', Record<never, never>, Record<never, never>>,
     '/tags/': RouteRecordInfo<'/tags/', '/tags', Record<never, never>, Record<never, never>>,
   }
+
+  /**
+   * Route file to route info map by unplugin-vue-router.
+   * Used by the volar plugin to automatically type useRoute()
+   *
+   * Each key is a file path relative to the project root with 2 properties:
+   * - routes: union of route names of the possible routes when in this page (passed to useRoute<...>())
+   * - views: names of nested views (can be passed to <RouterView name="...">)
+   *
+   * @internal
+   */
+  export interface _RouteFileInfoMap {
+    'node_modules/.pnpm/valaxy-theme-yun@0.26.6_vue@3.5.22_typescript@5.9.3_/node_modules/valaxy-theme-yun/pages/index.vue': {
+      routes: '/'
+      views: never
+    }
+    'node_modules/.pnpm/valaxy@0.26.6_@babel+parser_864bf43e00ddb3b86dcdc9946959bb40/node_modules/valaxy/client/pages/[...path].vue': {
+      routes: '/[...path]'
+      views: never
+    }
+    'pages/404.md': {
+      routes: '/404'
+      views: never
+    }
+    'pages/about/index.md': {
+      routes: '/about/'
+      views: never
+    }
+    'pages/about/site.md': {
+      routes: '/about/site'
+      views: never
+    }
+    'pages/archives/index.md': {
+      routes: '/archives/'
+      views: never
+    }
+    'pages/categories/index.md': {
+      routes: '/categories/'
+      views: never
+    }
+    'pages/links/index.md': {
+      routes: '/links/'
+      views: never
+    }
+    'node_modules/.pnpm/valaxy-theme-yun@0.26.6_vue@3.5.22_typescript@5.9.3_/node_modules/valaxy-theme-yun/pages/page/[page].vue': {
+      routes: '/page/[page]'
+      views: never
+    }
+    'node_modules/.pnpm/valaxy-theme-yun@0.26.6_vue@3.5.22_typescript@5.9.3_/node_modules/valaxy-theme-yun/pages/posts/index.vue': {
+      routes: '/posts/'
+      views: never
+    }
+    'pages/posts/BigData/docker实验.md': {
+      routes: '/posts/BigData/docker实验'
+      views: never
+    }
+    'pages/posts/BigData/flume的安装与使用.md': {
+      routes: '/posts/BigData/flume的安装与使用'
+      views: never
+    }
+    'pages/posts/BigData/Hadoop安装与配置.md': {
+      routes: '/posts/BigData/Hadoop安装与配置'
+      views: never
+    }
+    'pages/posts/BigData/HDFS实验报告.md': {
+      routes: '/posts/BigData/HDFS实验报告'
+      views: never
+    }
+    'pages/posts/BigData/Linux下Kafka的安装与配置.md': {
+      routes: '/posts/BigData/Linux下Kafka的安装与配置'
+      views: never
+    }
+    'pages/posts/BigData/MapReduce.md': {
+      routes: '/posts/BigData/MapReduce'
+      views: never
+    }
+    'pages/posts/BigData/ubuntu常用命令记录.md': {
+      routes: '/posts/BigData/ubuntu常用命令记录'
+      views: never
+    }
+    'pages/posts/BigData/YARN实践.md': {
+      routes: '/posts/BigData/YARN实践'
+      views: never
+    }
+    'pages/posts/BigData/Zookeeper.md': {
+      routes: '/posts/BigData/Zookeeper'
+      views: never
+    }
+    'pages/posts/BigData/云计算与分布式-存储技术.md': {
+      routes: '/posts/BigData/云计算与分布式-存储技术'
+      views: never
+    }
+    'pages/posts/BigData/图解HTTP.md': {
+      routes: '/posts/BigData/图解HTTP'
+      views: never
+    }
+    'pages/posts/BigData/老师任务之复杂的多表查询SQL.md': {
+      routes: '/posts/BigData/老师任务之复杂的多表查询SQL'
+      views: never
+    }
+    'pages/posts/BigData/黑猫数据分析.md': {
+      routes: '/posts/BigData/黑猫数据分析'
+      views: never
+    }
+    'pages/posts/大数据分析技术基础/大实验/实时仓库搭建.md': {
+      routes: '/posts/大数据分析技术基础/大实验/实时仓库搭建'
+      views: never
+    }
+    'pages/posts/大数据分析技术基础/大实验/数据同步.md': {
+      routes: '/posts/大数据分析技术基础/大实验/数据同步'
+      views: never
+    }
+    'pages/posts/大数据分析技术基础/大实验/数据采集.md': {
+      routes: '/posts/大数据分析技术基础/大实验/数据采集'
+      views: never
+    }
+    'pages/posts/大数据分析技术基础/大实验/离线仓库搭建.md': {
+      routes: '/posts/大数据分析技术基础/大实验/离线仓库搭建'
+      views: never
+    }
+    'pages/posts/大数据分析技术基础/实验/Flink/Flink编程 DataStreamAPI.md': {
+      routes: '/posts/大数据分析技术基础/实验/Flink/Flink编程 DataStreamAPI'
+      views: never
+    }
+    'pages/posts/大数据分析技术基础/实验/Flink/Flink编程 Table API&SQL.md': {
+      routes: '/posts/大数据分析技术基础/实验/Flink/Flink编程 Table API&SQL'
+      views: never
+    }
+    'pages/posts/大数据分析技术基础/实验/Flink/Flink部署.md': {
+      routes: '/posts/大数据分析技术基础/实验/Flink/Flink部署'
+      views: never
+    }
+    'pages/posts/大数据分析技术基础/实验/Hbase/Hbase基础/HBaseShell接口操作.md': {
+      routes: '/posts/大数据分析技术基础/实验/Hbase/Hbase基础/HBaseShell接口操作'
+      views: never
+    }
+    'pages/posts/大数据分析技术基础/实验/Hbase/Hbase基础/HBaseWebUI管理.md': {
+      routes: '/posts/大数据分析技术基础/实验/Hbase/Hbase基础/HBaseWebUI管理'
+      views: never
+    }
+    'pages/posts/大数据分析技术基础/实验/Hbase/Hbase基础/HBase伪分布式部署.md': {
+      routes: '/posts/大数据分析技术基础/实验/Hbase/Hbase基础/HBase伪分布式部署'
+      views: never
+    }
+    'pages/posts/大数据分析技术基础/实验/Hbase/Hbase编程开发1/JavaAPI命名空间操作.md': {
+      routes: '/posts/大数据分析技术基础/实验/Hbase/Hbase编程开发1/JavaAPI命名空间操作'
+      views: never
+    }
+    'pages/posts/大数据分析技术基础/实验/Hbase/Hbase编程开发1/JavaAPI表操作.md': {
+      routes: '/posts/大数据分析技术基础/实验/Hbase/Hbase编程开发1/JavaAPI表操作'
+      views: never
+    }
+    'pages/posts/大数据分析技术基础/实验/Hive/Hive概述/HiveCLI命令行接口使用.md': {
+      routes: '/posts/大数据分析技术基础/实验/Hive/Hive概述/HiveCLI命令行接口使用'
+      views: never
+    }
+    'pages/posts/大数据分析技术基础/实验/Hive/Hive概述/Hive的安装部署.md': {
+      routes: '/posts/大数据分析技术基础/实验/Hive/Hive概述/Hive的安装部署'
+      views: never
+    }
+    'pages/posts/大数据分析技术基础/实验/Hive/HQL之DDL操作/数据库和数据表定义.md': {
+      routes: '/posts/大数据分析技术基础/实验/Hive/HQL之DDL操作/数据库和数据表定义'
+      views: never
+    }
+    'pages/posts/大数据分析技术基础/实验/Hive/HQL之数据查询/HQL多表连接查询.md': {
+      routes: '/posts/大数据分析技术基础/实验/Hive/HQL之数据查询/HQL多表连接查询'
+      views: never
+    }
+    'pages/posts/大数据分析技术基础/实验/Hive/HQL高级分析函数/使用HQL窗口函数.md': {
+      routes: '/posts/大数据分析技术基础/实验/Hive/HQL高级分析函数/使用HQL窗口函数'
+      views: never
+    }
+    'pages/posts/大数据分析技术基础/实验/Spark SQL/SparkRDD.md': {
+      routes: '/posts/大数据分析技术基础/实验/Spark SQL/SparkRDD'
+      views: never
+    }
+    'pages/posts/大数据分析技术基础/实验/Spark SQL/实验七 Spark SQL：普通样例类编程.md': {
+      routes: '/posts/大数据分析技术基础/实验/Spark SQL/实验七 Spark SQL：普通样例类编程'
+      views: never
+    }
+    'pages/posts/大数据分析技术基础/实验/Spark SQL/实验八 Spark SQL：领域API编程.md': {
+      routes: '/posts/大数据分析技术基础/实验/Spark SQL/实验八 Spark SQL：领域API编程'
+      views: never
+    }
+    'pages/posts/大数据分析技术基础/实验/Spark SQL/实验六 Spark SQL：命令方式.md': {
+      routes: '/posts/大数据分析技术基础/实验/Spark SQL/实验六 Spark SQL：命令方式'
+      views: never
+    }
+    'pages/posts/大数据分析技术基础/实验/Spark部署/Spark安装部署：On Yarn模式.md': {
+      routes: '/posts/大数据分析技术基础/实验/Spark部署/Spark安装部署：On Yarn模式'
+      views: never
+    }
+    'pages/posts/大数据分析技术基础/实验/Spark部署/Spark安装部署：Standalone模式.md': {
+      routes: '/posts/大数据分析技术基础/实验/Spark部署/Spark安装部署：Standalone模式'
+      views: never
+    }
+    'pages/posts/大数据分析技术基础/实验/数据和处理的抽象.md': {
+      routes: '/posts/大数据分析技术基础/实验/数据和处理的抽象'
+      views: never
+    }
+    'pages/posts/大数据分析技术基础/考试.md': {
+      routes: '/posts/大数据分析技术基础/考试'
+      views: never
+    }
+    'pages/posts/大数据分析技术基础/课程/Spark RDD算子.md': {
+      routes: '/posts/大数据分析技术基础/课程/Spark RDD算子'
+      views: never
+    }
+    'pages/posts/大数据分析技术基础/课程/Spark SQL.md': {
+      routes: '/posts/大数据分析技术基础/课程/Spark SQL'
+      views: never
+    }
+    'pages/posts/大数据分析技术基础/课程/Spark工作原理.md': {
+      routes: '/posts/大数据分析技术基础/课程/Spark工作原理'
+      views: never
+    }
+    'pages/posts/大数据分析技术基础/课程/Spark案例分析.md': {
+      routes: '/posts/大数据分析技术基础/课程/Spark案例分析'
+      views: never
+    }
+    'pages/posts/大数据分析技术基础/课程/数据处理的一般模式.md': {
+      routes: '/posts/大数据分析技术基础/课程/数据处理的一般模式'
+      views: never
+    }
+    'pages/posts/大数据分析技术基础/课程/流式计算模型.md': {
+      routes: '/posts/大数据分析技术基础/课程/流式计算模型'
+      views: never
+    }
+    'pages/posts/当代数据管理系统/磁盘管理实验作业 1.1.md': {
+      routes: '/posts/当代数据管理系统/磁盘管理实验作业 1.1'
+      views: never
+    }
+    'pages/posts/数据结构/绪论.md': {
+      routes: '/posts/数据结构/绪论'
+      views: never
+    }
+    'pages/posts/机器学习/线性回归实践.md': {
+      routes: '/posts/机器学习/线性回归实践'
+      views: never
+    }
+    'pages/posts/面试八股文/Java基础.md': {
+      routes: '/posts/面试八股文/Java基础'
+      views: never
+    }
+    'pages/tags/index.md': {
+      routes: '/tags/'
+      views: never
+    }
+  }
+
+  /**
+   * Get a union of possible route names in a certain route component file.
+   * Used by the volar plugin to automatically type useRoute()
+   *
+   * @internal
+   */
+  export type _RouteNamesForFilePath<FilePath extends string> =
+    _RouteFileInfoMap extends Record<FilePath, infer Info>
+      ? Info['routes']
+      : keyof RouteNamedMap
 }
