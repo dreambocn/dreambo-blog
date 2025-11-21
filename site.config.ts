@@ -7,7 +7,7 @@ export default defineSiteConfig({
   subtitle: '',//副标题
   author: {
     name: '梦博',
-    avatar:'https://s2.loli.net/2025/03/18/3Cm4VLrhbEwqysU.jpg',
+    avatar:'/user-avatar.jpg',
     status:
     {
       emoji: '😐',
@@ -15,7 +15,7 @@ export default defineSiteConfig({
     },
   },
   mode: 'auto',
-  favicon:'',
+  favicon:'/user-avatar.jpg',
   description: '博客写一点是一点',
   // social: [
   //   {

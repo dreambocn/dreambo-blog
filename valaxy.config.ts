@@ -21,8 +21,8 @@ export default defineValaxyConfig<UserThemeConfig>({
     },
     bg_image: {
       enable: true,
-      url: 'https://s2.loli.net/2025/03/18/YQUfI64wXgsaL1W.jpg',
-      dark: 'https://s2.loli.net/2025/03/18/YQUfI64wXgsaL1W.jpg',
+      url: '/wallhaven-exrqrr.jpg',
+      dark: '/wallhaven-exrqrr.jpg',
       opacity: 0.8,
     },
     colors: {
