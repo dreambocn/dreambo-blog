@@ -1,0 +1,8 @@
+# 允许这些依赖执行安装脚本（esbuild 二进制、原生 watcher、vue-demi 版本切换）
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+  vue-demi: true
+
+minimumReleaseAgeExclude:
+  - valaxy-theme-yun@1.0.0-rc.16

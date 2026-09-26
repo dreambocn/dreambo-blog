@@ -3,6 +3,9 @@
   "type": "module",
   "version": "0.0.0",
   "private": true,
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "build": "npm run build:ssg",
     "build:spa": "valaxy build",
@@ -13,10 +16,10 @@
     "new": "valaxy new"
   },
   "dependencies": {
-    "valaxy": "0.26.6",
-    "valaxy-theme-yun": "0.26.6"
+    "valaxy": "1.0.0-rc.15",
+    "valaxy-theme-yun": "1.0.0-rc.16"
   },
   "devDependencies": {
-    "typescript": "^5.9.3"
+    "typescript": "^6.0.3"
   }
 }
