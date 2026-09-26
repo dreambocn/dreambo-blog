@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "valaxy": "1.0.0-rc.15",
+    "valaxy-addon-giscus": "^0.2.0",
     "valaxy-theme-yun": "1.0.0-rc.16"
   },
   "devDependencies": {

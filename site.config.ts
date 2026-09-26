@@ -103,6 +103,10 @@ export default defineSiteConfig({
     type: 'engine',
   },
 
+  comment: {
+    enable: true,
+  },
+
   // sponsor: {
   //   enable: true,
   //   title: '我很可爱，请给我钱！',

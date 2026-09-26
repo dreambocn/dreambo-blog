@@ -1,5 +1,6 @@
 import type { UserThemeConfig } from 'valaxy-theme-yun'
 import { defineValaxyConfig } from 'valaxy'
+import { addonGiscus } from 'valaxy-addon-giscus'
 
 // add icons what you will need
 const safelist = [
@@ -13,6 +14,17 @@ export default defineValaxyConfig<UserThemeConfig>({
   // site config see site.config.ts
 
   theme: 'yun',
+
+  addons: [
+    addonGiscus({
+      repo: 'dreambocn/dreambo-blog',
+      repoId: 'R_kgDOOKJDKg',
+      category: 'Announcements',
+      categoryId: 'DIC_kwDOOKJDKs4DGcgI',
+      mapping: 'pathname',
+      inputPosition: 'bottom',
+    }),
+  ],
 
   themeConfig: {
     banner: {
