@@ -8,8 +8,9 @@ categories:
 tags:
   - MCP
   - computer-use
+description: "解释 WebMCP 的浏览器工具声明机制，对比视觉 computer-use 的定位与交互方式，并讨论权限约束和工具描述带来的攻击面。"
 ---
-# WebMCP 是 computer-use 的换代，不是 MCP 的分支
+## WebMCP 是 computer-use 的换代，不是 MCP 的分支
 
 名字骗人。WebMCP 里带着 MCP，于是几乎所有讨论都把它拿去跟远程 MCP server 比，比出来的结论是"多了一条给 agent 接入的路"。这个参照系是错的。Chrome 146 Canary 在 2026 年 2 月落地第一个实现，2026 年 5 月 19 日的 Google I/O 宣布 Chrome 149 到 156 开公开 origin trial，到 2026 年 8 月底线上真实注册工具的站点接近零——要判断这个零是暂时的还是终局的，得把它放回真正的对照组里：computer-use。它替代的是那条路，继承的也是那条路的约束。
 

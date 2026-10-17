@@ -7,8 +7,9 @@ categories:
   - 模型与动态
 tags:
   - DeepSeek
+description: "围绕 DeepSeek 临时 Flash API 版本，整理多模态、输出速度、编码和长上下文表现，区分解码速度与端到端任务交付效率。"
 ---
-# DeepSeek V4.1 Flash：速度拉满了，但交付未必更快
+## DeepSeek V4.1 Flash：速度拉满了，但交付未必更快
 
 一句话定位：2026 年 9 月 8 日，DeepSeek 悄悄开放了一个只活到 9 月 10 日的中间版本。它不是正式发布的 V4.1，而是一个临时 API 模型：`deepseek-v4.1-flash-expires-on-0910`。
 

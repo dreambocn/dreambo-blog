@@ -9,6 +9,7 @@ tags:
   - Spark
   - SQL
   - 实验
+description: "记录通过 Spark Shell 使用 Spark SQL 的实验步骤，演示 JSON 数据加载和 API 查询，在集群环境中验证命令行操作结果。"
 ---
 **1、实验目的**
 
@@ -68,23 +69,23 @@ JSON采用完全独立于语言的文本格式，但是也使用了类似于C语
 
 6.1在zkpk用户根目录创建json文件，名为people.json。
 6.1.1在json文件中输入以下内容，作为数据源，保存退出。
-![image.png](https://s2.loli.net/2025/05/23/b6OghcFTqCJzfBx.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/b6OghcFTqCJzfBx-dde694a4064f09695cc1f1331dd15bdc.png)
 
 6.1.2验证刚才创建的people.json文件并查看其内容。
-![image.png|500](https://s2.loli.net/2025/05/23/ZUSizOunadDRfhk.png)
+![image.png|500](https://picture.dreambo.cn/2026/10/17/23/ZUSizOunadDRfhk-4581fe0e227d4a9a39265fda0b5d4c94.png)
 
 6.2进入spark根目录，运行spark-shell，打开spark命令行模式。
 
 6.2.1为避免现有环境中的依赖问题，执行如下命令（该步骤可能需要几分钟时间）。
 6.2.2启动spark shell。
-![image.png|500](https://s2.loli.net/2025/05/23/KGAtjkd2n1zHFSl.png)
+![image.png|500](https://picture.dreambo.cn/2026/10/17/23/KGAtjkd2n1zHFSl-b71eb4cafb953d4973bc242c88f48d69.png)
 
 6.2.4在Spark2.0后只要创建一个SparkSession就够了，SparkConf、SparkContext和SQLContext都已经被封装在SparkSession当中。当我们启动spark  
 shell时，默认已经初始化好了一个SparkSession对象 spark。
-![image.png|500](https://s2.loli.net/2025/05/23/DsuoNdAwUJZf5OM.png)
+![image.png|500](https://picture.dreambo.cn/2026/10/17/23/DsuoNdAwUJZf5OM-5d47acd838b8d15e93e306141e3965ce.png)
 
 6.2.5利用SparkSession对象spark，其读取json数据赋值给一个DataFrames对象df，并解析数据结构。
-![image.png|500](https://s2.loli.net/2025/05/23/cFNX86Qwm5CZ2Tt.png)
+![image.png|500](https://picture.dreambo.cn/2026/10/17/23/cFNX86Qwm5CZ2Tt-e2725ad34eddab673239911da850ec83.png)
 
 6.2.5.1DataFrames是一个以命名列方式组织的分布式数据集，等同于关系型数据库中的一个表。
 
@@ -95,22 +96,22 @@ shell时，默认已经初始化好了一个SparkSession对象 spark。
 6.3DataFrames处理结构化数据的基本操作。
 
 6.3.1调用df对象的show方法，展示所有数据。
-![image.png|450](https://s2.loli.net/2025/05/23/Cpvk2GLgQ9E7Ht5.png)
+![image.png|450](https://picture.dreambo.cn/2026/10/17/23/Cpvk2GLgQ9E7Ht5-512ed26f702fe58cd4ac22e5bb079d2c.png)
 
 6.3.2只显示数据中的某一列。调用df对象的sql操作语句select，只查询“name”这一列，并调用show方法输出。
-![image.png|500](https://s2.loli.net/2025/05/23/OQJPAEKsZaeifUt.png)
+![image.png|500](https://picture.dreambo.cn/2026/10/17/23/OQJPAEKsZaeifUt-7720021035e9f1e0068db2a4e2ee4da1.png)
 
 6.3.3对Int类型数据做计算。调用df对象的sql操作语句select，选择“name”和“age”这两列，且将“age”值加1，并调用show方法输出。
-![image.png|475](https://s2.loli.net/2025/05/23/RGgCn1zA8pl6qEf.png)
+![image.png|475](https://picture.dreambo.cn/2026/10/17/23/RGgCn1zA8pl6qEf-ca0b370ad664e47241e7767fea0e233c.png)
 
 6.3.4条件过滤。调用df对象的sql操作语句filter，过滤出“age”值大于21的所有数据，并调用show方法输出。
-![image.png|500](https://s2.loli.net/2025/05/23/CPwbeOvgqlQ8cJo.png)
+![image.png|500](https://picture.dreambo.cn/2026/10/17/23/CPwbeOvgqlQ8cJo-865d0a8e1b20e7a50c8a107fbe371c89.png)
 
 6.3.5groupBy分组操作。调用df对象的sql操作语句groupBy，对“age”进行分组操作，调用count方法计算分组后，每一组值的个数，并调用show方法输出。
-![image.png|500](https://s2.loli.net/2025/05/23/RBMrLtPKInk39Sg.png)
+![image.png|500](https://picture.dreambo.cn/2026/10/17/23/RBMrLtPKInk39Sg-501dfc06de3c075136d4dd8a28d1f059.png)
 
 6.3.6使用:quit命令退出spark shell模式。
-![image.png](https://s2.loli.net/2025/05/23/i6LWwtKU5BoF2OV.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/i6LWwtKU5BoF2OV-45b30d7d6919c952fef1b24391733900.png)
 
 **7、思考题**
 
@@ -122,8 +123,8 @@ shell时，默认已经初始化好了一个SparkSession对象 spark。
 
 2. 将第1题中的json数据保存为user.json文件， 然后定义一个  
 	DataFrame实例df1读取user.json文件，最后调用show( )展示数据？
-	![image.png](https://s2.loli.net/2025/05/23/EOblCZJDKHeycwA.png)
-	![image.png](https://s2.loli.net/2025/05/23/A89HlThDmaKObfE.png)
+	![image.png](https://picture.dreambo.cn/2026/10/17/23/EOblCZJDKHeycwA-29e8e8fa4b585c36b607e95e068b9eca.png)
+	![image.png](https://picture.dreambo.cn/2026/10/17/23/A89HlThDmaKObfE-981b59ee99f0fe0d65eb032e73f8e28a.png)
 
 测试出来如果用美化后的json不能识别只能是压缩后的json可以识别
 精简

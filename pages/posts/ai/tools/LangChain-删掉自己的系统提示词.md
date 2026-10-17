@@ -8,8 +8,9 @@ categories:
 tags:
   - LangChain
   - 提示词
+description: "梳理 LangChain 调整系统提示词和任务清单的案例，结合评测内容讨论提示词迁移、模型能力变化与 Agent 工具约束的关系。"
 ---
-# LangChain 把自己的系统提示词删空了
+## LangChain 把自己的系统提示词删空了
 
 Deep Agents v0.7，7 月 24 日发的，8 月一路补到 v0.7.7。改动是三件减法：内置系统提示词删空，
 工具描述砍掉 43%，默认挂的 todo list 摘掉。一次默认对话的输入 token 从 5,395 掉到 1,895，降 65%。

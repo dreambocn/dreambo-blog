@@ -9,6 +9,7 @@ tags:
   - HBase
   - JavaAPI
   - 实验
+description: "记录使用 HBase Java API 管理命名空间的实验步骤，整理客户端连接、命名空间操作与运行验证过程。"
 ---
 ### 一、实验目的
 
@@ -47,23 +48,23 @@ tags:
 
 #### 5.1、启动IntelliJ Idea并创建Java项目
 1.启动IntelliJ Idea。在终端窗口下
-![image.png](https://s2.loli.net/2025/05/06/pZ31C8JdxXIFEsS.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/pZ31C8JdxXIFEsS-720877e23d6081553812987810303949.png)
 2.在idea中创建Java项目，依次选择“Create New Project->java->next->next”，并命名为”hbase_name”，最后选择“Finish”，其它都默认即可。
-![image.png](https://s2.loli.net/2025/05/06/Ne9JXG8kUrvVls2.png)
-![image.png](https://s2.loli.net/2025/05/06/HMgO5PAJ47eKu6S.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/Ne9JXG8kUrvVls2-fdd438d68f69351bae1f7e72d56cf5bc.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/HMgO5PAJ47eKu6S-66f8f96b6702ac0ac6c99c53117b0bb1.png)
 3.然后依次选择”File->Project structure…”菜单项，进入项目结构界面。
-![image.png](https://s2.loli.net/2025/05/06/8WyVIl3Oho9rDA4.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/8WyVIl3Oho9rDA4-50de8eaa03438c7663d58ac74aae8ba7.png)
 4.Hbase程序开发和运行，需要依赖Hbase相关的jar包。按图中所示依次选择，手动导入Hbase的jar包到项目中。
-![image.png](https://s2.loli.net/2025/05/06/QgDZh9NwtxW52b7.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/QgDZh9NwtxW52b7-95990df58af7f72fbe0e42640c526903.png)
 5.导入Hbase安装目录下的libs目录中的jar包
-![image.png](https://s2.loli.net/2025/05/06/zYiQdFCjecbKMyf.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/zYiQdFCjecbKMyf-595e3ed3d6bb00ff95884d46f419cbe5.png)
 6.查看导出成功的jar包
-![image.png](https://s2.loli.net/2025/05/06/R4d6oahrbHxlWiE.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/R4d6oahrbHxlWiE-6fb82586e814548607c5fbe23d78da16.png)
 #### 5.2、编写Namespace操作代码
 
 1.选中项目”hbase_name的src目录上，单击右键，依次选择”New->Java Class”，创建Java类。
 2.在弹出的对话框中，命名”NameSpacePro”，并选择”class”类型。
-![image.png](https://s2.loli.net/2025/05/06/hNwuUgrAZf278DG.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/hNwuUgrAZf278DG-18abb10614e742675fc68fbe6446f1bd.png)
 
 3.创建configuration对象
 ```java
@@ -96,14 +97,14 @@ hbaseAdmin.close();
 ```
 
 完整代码
-![image.png](https://s2.loli.net/2025/05/06/IUWf9NnkEduybqG.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/IUWf9NnkEduybqG-95340aad4bc4ab5459fe2da4ca59a649.png)
 #### 5.3、对Namespace的测试验证
 1.启动hadoop
 2.zookeeper，Hbase
-![image.png](https://s2.loli.net/2025/05/06/opGj3tyOzwCmevu.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/opGj3tyOzwCmevu-10e6f50ba373098c4c047c3aa8e177e2.png)
 
 3.运行idea中的程序
-![image.png](https://s2.loli.net/2025/05/06/ROTEZSrdF4fX7NW.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/ROTEZSrdF4fX7NW-42482008c729ea24dc3aa7c83c60c877.png)
 
 4.启动hbase shell 查看运行结果
-![image.png](https://s2.loli.net/2025/05/06/pEyRl2UwFonAmLQ.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/pEyRl2UwFonAmLQ-0a29bb9278c831e59e67d20a34eab949.png)

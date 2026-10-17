@@ -8,6 +8,7 @@ categories:
 tags:
   - Spark
   - SQL
+description: "介绍 Spark SQL 的设计背景、DataFrame 与 DataSet，整理 SQL 与程序结合的方式，并分析 join 操作的实现思路。"
 ---
 ## 关于Spark SQL
 
@@ -56,9 +57,9 @@ DataFrame 支持两种操作风格
 ## DataSet
 
 ### DataFrame、DataSet和RDD的区别
-![image.png](https://s2.loli.net/2025/04/27/95HrCmUlRhtwNGa.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/22/95HrCmUlRhtwNGa-716708014aac71050bc9bb30d08339dc.png)
 
-![image.png](https://s2.loli.net/2025/04/27/Qg9spL6CYxKuldi.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/22/Qg9spL6CYxKuldi-e5ca5b928a35ea959a03ddb2a043ccff.png)
 
 
 RDD的优点是：
@@ -83,7 +84,7 @@ DataFrame是DataSet的特例
 
 ### DataFrame、DataSet和RDD相互转换
 
-![image.png](https://s2.loli.net/2025/04/27/5dkb7lH3Ix4EzO8.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/22/5dkb7lH3Ix4EzO8-c21abb42426b53405d1791aebb8d905d.png)
 
 ## Spark SQL 中join操作实现
 
@@ -96,10 +97,10 @@ DataFrame是DataSet的特例
 - 广播
 
 Spark SQL 支持 5 种分布式 Join 策略
-![image.png](https://s2.loli.net/2025/04/27/DLH1SpgJa8nf92B.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/22/DLH1SpgJa8nf92B-9aaba2dab118f4bf5b58b05406ca90e5.png)
 
 Shuffle分发方式
-![image.png](https://s2.loli.net/2025/04/27/jcC3gexIiyZJz72.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/22/jcC3gexIiyZJz72-266afc99c36f43d6cd584e57bcf378b5.png)
 
 广播分发方式
-![image.png](https://s2.loli.net/2025/04/27/vqSpYoJjCztfyr1.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/22/vqSpYoJjCztfyr1-a928abd027ddec0f0c709f6b7245292f.png)

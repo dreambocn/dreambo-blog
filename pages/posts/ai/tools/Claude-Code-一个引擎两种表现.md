@@ -7,8 +7,9 @@ categories:
   - 工具与框架
 tags:
   - Claude Code
+description: "区分 Claude Code CLI、Desktop 与 Claude Desktop 的关系，比较共享能力、管道调用、独占功能，以及日常使用中的配置陷阱。"
 ---
-# Claude Code 的 CLI 和 Desktop：一个引擎，两种表现
+## Claude Code 的 CLI 和 Desktop：一个引擎，两种表现
 
 我一直以为 Claude Code CLI 和 Claude Desktop 是两个东西：一个给工程师，一个给普通人，能力有高低。于是想整理一份"该用哪个"的对照表。
 

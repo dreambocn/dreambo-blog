@@ -8,6 +8,7 @@ categories:
 tags:
   - Spark
   - 大数据
+description: "从 MapReduce 的局限切入，整理 Spark 的设计思想、体系架构与执行流程，解释 Stage 划分和内部任务运行机制。"
 ---
 ## Spark 介绍
 
@@ -89,9 +90,9 @@ RDD操作算子
 
 逻辑计算模型：Operator DAG
 - 从算子操作的角度来描述计算的过程
-![image.png](https://s2.loli.net/2025/04/16/wQiq8rohy9AzlJe.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/22/wQiq8rohy9AzlJe-e10833079fa1bf3270b5a33c3a81e02e.png)
 - 从RDD变换的角度来描述计算过程
-![image.png](https://s2.loli.net/2025/04/16/4iJxLVdHce2lpbN.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/22/4iJxLVdHce2lpbN-1f95cf97f67c3cafe3fed3c74989ee35.png)
 RDD Lineage(DAG拓扑结构）
 - RDD读入外部数据源进行创建
 - RDD经过一系列的转换（Transformation）操作，每一次都会产生不同的RDD，供给下一个
@@ -112,7 +113,7 @@ RDD只读不可变
 ---
 ## 体系架构 
 ### 抽象架构图
-![image.png](https://s2.loli.net/2025/04/16/LxSKwuV3zhBU1kA.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/22/LxSKwuV3zhBU1kA-f73ad2bd2161b6c23e53dedf38bbfa81.png)
 
 - Cluster Manager
 	集群管理器：负责管理整个系统的资源监控工作节点
@@ -122,7 +123,7 @@ RDD只读不可变
 	驱动器：负责启动应用程序的主方法并管理作业运行
 
 ### Standalone 架构图
-![image.png](https://s2.loli.net/2025/04/16/LXc39Oj84qikWgr.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/22/LXc39Oj84qikWgr-66f6658c7b2800ba07f710d334d8e061.png)
 
 Driver逻辑上独立于主节点、从节点以及客户端，但是根据应用程序的client和cluster方式运行时，Driver的运行方式不同
 - Client方式：Driver和客户端以同一个进程存在
@@ -138,7 +139,7 @@ Driver逻辑上独立于主节点、从节点以及客户端，但是根据应�
 ---
 ## 工作原理
 Driver内部工作原理
-![image.png](https://s2.loli.net/2025/04/16/3e1SobFgv2pqANE.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/22/3e1SobFgv2pqANE-9f70196584a7e4250290dd0c6039bc52.png)
 
 ### Stage 划分
 
@@ -203,7 +204,7 @@ RDD依赖关系
 - 一个TaskSet=多个没有Shuffle关系的Task
 
 ---
-# 容错机制
+## 容错机制
 ## 故障类型
 Master故障：ZooKeeper配置多个Master
 Worker故障

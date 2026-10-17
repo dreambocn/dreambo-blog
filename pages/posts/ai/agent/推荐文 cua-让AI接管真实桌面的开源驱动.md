@@ -8,8 +8,9 @@ categories:
 tags:
   - Agent
   - computer-use
+description: "介绍开源桌面自动化项目 cua 的定位、MCP 接入与原生应用控制方式，梳理跨平台能力、后台操作条件和使用边界。"
 ---
-# cua：让 AI 接管真实桌面的开源 computer-use 驱动
+## cua：让 AI 接管真实桌面的开源 computer-use 驱动
 
 > 一句话定位：MIT 开源的 Rust 桌面驱动（trycua/cua，22.7k star，2026-09-15 数据），把 macOS / Windows / Linux 的真实桌面——原生 App、窗口、键盘鼠标、截屏——以 MCP 工具的形式交给任意 coding agent；在 macOS 上可以不抢你的焦点、不动你的鼠标，在后台把事办完。
 

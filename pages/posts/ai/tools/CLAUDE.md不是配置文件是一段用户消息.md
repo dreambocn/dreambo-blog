@@ -8,8 +8,9 @@ categories:
 tags:
   - Claude Code
   - 提示词
+description: "从本机记忆实验出发，区分 Claude Code 的记忆写入、召回与遵循，讨论 CLAUDE.md 的上下文作用及主流 Agent 记忆方案的边界。"
 ---
-# 你的 CLAUDE.md 不是配置文件，是一段用户消息
+## 你的 CLAUDE.md 不是配置文件，是一段用户消息
 
 我用 Claude Code 大半年，一直觉得它的记忆系统很简陋：靠一堆 markdown 文件维护，而且我不知道那些文件到底有没有被用上。同一条偏好说过很多次，换个会话又回到原点。
 

@@ -8,8 +8,9 @@ categories:
 tags:
   - DeepSeek
   - 多模态
+description: "梳理 DeepSeek V4-Flash-Vision-Exp 的视觉模块、训练方式与评测信息，比较其多模态定位、使用场景和实验版本的限制。"
 ---
-# DeepSeek-V4-Flash-Vision-Exp：给 V4-Flash 装上眼睛，但还不是视觉模型终局
+## DeepSeek-V4-Flash-Vision-Exp：给 V4-Flash 装上眼睛，但还不是视觉模型终局
 
 DeepSeek 在 2026 年 8 月 21 日上线了 `DeepSeek-V4-Flash-Vision-Exp`。先纠正一个容易传错的名字：官方型号里没有 `V4.1`，正式名称是 **V4-Flash-Vision-Exp**。
 

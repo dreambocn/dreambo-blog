@@ -8,14 +8,15 @@ categories:
 tags:
   - SQL
   - 多表查询
+description: "结合项目表结构编写复杂多表 SQL 查询，逐项解释表的关系、关联条件与查询目的，记录从业务要求到查询实现的过程。"
 ---
-# 复杂的多表查询SQL
+## 复杂的多表查询SQL
 
 楔子：突然有一天老师叫我写一个复杂的SQL多表查询语句，可能是因为我之前在他底下做了一个项目，所有觉得我的项目内本来就有复杂的SQL语句，但是真的做项目的时候前期根本没有精打细算，所以写的SQL都是简单的查询根本没有往复杂里写，所以就有了今天的问题*一个复杂的多表查询SQL*。
 
 ## 表结构展示
 
-![tg_project](https://s2.loli.net/2024/09/25/7rJ2ctYkSmBqfE5.png)
+![tg_project](https://picture.dreambo.cn/2026/10/17/23/7rJ2ctYkSmBqfE5-a9333bbce37a258a80976f20b40a637f.png)
 
 ## SQL查询语句展示
 
@@ -109,7 +110,7 @@ WHERE
 
 该查询旨在计算和展示学生应修各类课程学分统计表，并根据特定条件判断是否合规状态。
 
-![image-20240925194740718](https://s2.loli.net/2024/09/25/3UiCWjAI5Oyftpa.png)
+![image-20240925194740718](https://picture.dreambo.cn/2026/10/17/23/3UiCWjAI5Oyftpa-b5cfea7bc015b9f1c37c4d561db98a07.png)
 
 此为学生应修各类课程学分统计表效果图，我们的项目最终会生成的其中一张表。
 
@@ -131,4 +132,4 @@ WHERE
 
 ### 结果演示
 
-![image-20240925195950696](https://s2.loli.net/2024/09/25/gBJ5VYZb93tXPyz.png)
+![image-20240925195950696](https://picture.dreambo.cn/2026/10/17/23/gBJ5VYZb93tXPyz-35cd59ad20f31d6bd220b73373b549bb.png)

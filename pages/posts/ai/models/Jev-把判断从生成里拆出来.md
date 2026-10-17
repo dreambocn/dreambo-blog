@@ -8,8 +8,9 @@ categories:
 tags:
   - AI
   - 模型
+description: "介绍 TypeSafe AI 的 Jev 判断模型，梳理其输入输出、延迟与任务定位，讨论将评判能力从文本生成流程中独立出来的用途和限制。"
 ---
-# Jev：把判断从生成里拆出来
+## Jev：把判断从生成里拆出来
 
 2026 年 9 月 15 日，一家叫 TypeSafe AI 的旧金山公司走出隐身状态，带着 4000 万美元种子轮和第一个产品 Jev。创始人 Diogo Almeida 是前 OpenAI 研究员，参与过 RLHF、InstructGPT、ChatGPT 和 GPT-4——把语言模型「教听话」的那套方法，他是最早的一批实践者。
 

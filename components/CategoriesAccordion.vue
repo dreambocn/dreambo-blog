@@ -10,12 +10,13 @@ const props = defineProps<{
 }>()
 
 const { t } = useI18n()
-const { $tCategory } = useValaxyI18n()
+const { $tCategory, $tO } = useValaxyI18n()
 const route = useRoute()
 const router = useRouter()
 
 // 当前展开的分类（同一时间只展开一个）
 const expanded = ref<string | null>(null)
+const enhanced = ref(false)
 
 const topCategories = computed<CategoryList[]>(() =>
   Array.from(props.categories.values()).filter(isCategoryList),
@@ -48,9 +49,18 @@ function displayName(name: string) {
   return name === 'Uncategorized' ? t('category.uncategorized') : $tCategory(name)
 }
 
+const dateFormatter = new Intl.DateTimeFormat('sv-SE', {
+  timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit',
+})
+
 function formatDate(date: string | Date) {
-  const d = new Date(date)
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+  const value = new Date(date)
+  return Number.isNaN(value.getTime()) ? '日期待补充' : dateFormatter.format(value)
+}
+
+// 使用可逆编码生成稳定标识，避免不同分类名称清理后发生碰撞。
+function panelId(name: string) {
+  return `category-panel-${encodeURIComponent(name)}`
 }
 
 // 深链 ?category=X 只取顶级分类名（兼容旧的 A/B 形式）
@@ -63,19 +73,24 @@ function queryCategory(): string | null {
   return topCategories.value.some(cat => cat.name === top) ? top : null
 }
 
-function toggle(name: string) {
-  if (expanded.value === name) {
+function onToggle(name: string, event: Event) {
+  const isOpen = (event.currentTarget as HTMLDetailsElement).open
+  // 受控属性更新也会触发原生 toggle；只同步用户改变的状态。
+  if (isOpen === (expanded.value === name))
+    return
+  if (!isOpen) {
     expanded.value = null
     const { category: _drop, ...rest } = route.query
-    router.replace({ query: rest })
+    router.replace({ query: rest, hash: route.hash })
   }
   else {
     expanded.value = name
-    router.replace({ query: { ...route.query, category: name } })
+    router.replace({ query: { ...route.query, category: name }, hash: route.hash })
   }
 }
 
 onMounted(() => {
+  enhanced.value = true
   // 水合安全：首屏与 SSG 一致（收起），挂载后再按深链展开
   const q = queryCategory()
   if (!q)
@@ -84,7 +99,10 @@ onMounted(() => {
   nextTick(() => {
     document
       .querySelector(`[data-category="${CSS.escape(q)}"]`)
-      ?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      ?.scrollIntoView({
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+        block: 'center',
+      })
   })
 })
 
@@ -96,49 +114,47 @@ watch(() => route.query.category, () => {
 
 <template>
   <div class="categories-accordion">
-    <div
+    <details
       v-for="category in topCategories"
       :key="category.name"
       class="category-item"
+      :open="expanded === category.name"
+      @toggle="onToggle(category.name, $event)"
     >
-      <button
+      <summary
         class="category-header"
         :class="{ expanded: expanded === category.name }"
         :data-category="category.name"
-        type="button"
-        @click="toggle(category.name)"
+        :aria-expanded="enhanced ? expanded === category.name : undefined"
+        :aria-controls="panelId(category.name)"
       >
-        <span class="category-icon">
+        <span class="category-icon" aria-hidden="true">
           <div v-if="expanded === category.name" i-ri-folder-open-line />
           <div v-else i-ri-folder-line />
         </span>
         <span class="category-name">{{ displayName(category.name) }}</span>
         <span class="category-count">{{ category.total }}</span>
-        <span class="category-arrow">
+        <span class="category-arrow" aria-hidden="true">
           <div i-ri-arrow-down-s-line />
         </span>
-      </button>
+      </summary>
 
-      <Transition
-        enter-active-class="animate-fade-in animate-duration-300"
-        leave-active-class="animate-fade-out animate-duration-150"
-      >
-        <div v-if="expanded === category.name" class="posts-list">
-          <RouterLink
-            v-for="post in postsOf(category.name)"
-            :key="post.path"
-            :to="post.path || ''"
-            class="post-item"
-          >
-            <span class="post-date">{{ formatDate(post.date) }}</span>
-            <span class="post-title">{{ post.title }}</span>
-          </RouterLink>
-          <div v-if="!postsOf(category.name).length" class="post-empty">
-            暂无文章
-          </div>
+      <!-- 原生折叠只控制可见性，静态 HTML 始终保留文章链接。 -->
+      <div :id="panelId(category.name)" class="posts-list">
+        <RouterLink
+          v-for="post in postsOf(category.name)"
+          :key="post.path"
+          :to="post.path || ''"
+          class="post-item"
+        >
+          <span class="post-date">{{ formatDate(post.date) }}</span>
+          <span class="post-title">{{ $tO(post.title) }}</span>
+        </RouterLink>
+        <div v-if="!postsOf(category.name).length" class="post-empty">
+          暂无文章
         </div>
-      </Transition>
-    </div>
+      </div>
+    </details>
   </div>
 </template>
 
@@ -178,6 +194,7 @@ watch(() => route.query.category, () => {
   font: inherit;
   text-align: left;
   cursor: pointer;
+  list-style: none;
   user-select: none;
   transition: background-color 0.2s;
 }
@@ -186,16 +203,26 @@ watch(() => route.query.category, () => {
   background-color: rgba(0, 0, 0, 0.03);
 }
 
+.category-header::-webkit-details-marker {
+  display: none;
+}
+
+.category-header:focus-visible,
+.post-item:focus-visible {
+  outline: 2px solid var(--va-c-primary);
+  outline-offset: -3px;
+}
+
 .dark .category-header:hover {
   background-color: rgba(255, 255, 255, 0.05);
 }
 
-.category-header.expanded {
+.category-item[open] > .category-header {
   background-color: rgba(0, 0, 0, 0.02);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.dark .category-header.expanded {
+.dark .category-item[open] > .category-header {
   background-color: rgba(255, 255, 255, 0.03);
   border-bottom-color: rgba(255, 255, 255, 0.05);
 }
@@ -233,7 +260,7 @@ watch(() => route.query.category, () => {
   transition: transform 0.25s, opacity 0.2s;
 }
 
-.category-header.expanded .category-arrow {
+.category-item[open] > .category-header .category-arrow {
   transform: rotate(180deg);
   opacity: 0.9;
 }
@@ -279,6 +306,8 @@ watch(() => route.query.category, () => {
 
 .post-title {
   flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
   color: var(--va-c-text);
 }
 
@@ -294,5 +323,25 @@ watch(() => route.query.category, () => {
 
 .dark .post-empty {
   color: rgba(255, 255, 255, 0.45);
+}
+
+@media (max-width: 480px) {
+  .post-item {
+    flex-wrap: wrap;
+    gap: 0.2rem 0.65rem;
+  }
+
+  .post-title {
+    flex-basis: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .category-item,
+  .category-header,
+  .category-arrow,
+  .post-item {
+    transition: none;
+  }
 }
 </style>

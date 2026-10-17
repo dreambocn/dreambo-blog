@@ -2,16 +2,22 @@ import type { UserThemeConfig } from 'valaxy-theme-yun'
 import { defineValaxyConfig } from 'valaxy'
 import { addonGiscus } from 'valaxy-addon-giscus'
 
-// add icons what you will need
+// 按需保留页面使用的图标。
 const safelist = [
   'i-ri-home-line',
 ]
 
 /**
- * User Config
+ * 博客主题与构建配置。
  */
 export default defineValaxyConfig<UserThemeConfig>({
-  // site config see site.config.ts
+  // 站点信息统一维护在 site.config.ts。
+
+  extendMd({ route, data }) {
+    // 未单独设置列表摘录时，复用纯文本摘要，避免首页展示整篇正文。
+    if (data.description && !route.meta.excerpt)
+      route.addToMeta({ excerpt: data.description })
+  },
 
   theme: 'yun',
 
@@ -50,12 +56,6 @@ export default defineValaxyConfig<UserThemeConfig>({
         url: '/links/',
         icon: 'i-ri-genderless-line',
         color: 'dodgerblue',
-      },
-      {
-        name: '喜欢的女孩子',
-        url: '/girls/',
-        icon: 'i-ri-women-line',
-        color: 'hotpink',
       },
     ],
 

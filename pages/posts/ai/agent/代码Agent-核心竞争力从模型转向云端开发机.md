@@ -8,8 +8,9 @@ categories:
 tags:
   - Agent
   - 代码生成
+description: "从 Claude Code 与 Instinct 的执行环境出发，讨论代码 Agent 的云端开发机、沙箱、文件持久化与长期记忆，以及模型和工具之间的工程边界。"
 ---
-# 代码 Agent 的核心竞争力，正在从模型转向云端开发机
+## 代码 Agent 的核心竞争力，正在从模型转向云端开发机
 
 最近看到一篇文章，作者没有比较哪个模型的跑分更高，而是钻进 Claude Code 和 Instinct 的运行环境里，去看一个代码 Agent 到底住在哪里、怎么拿到工具、文件放在哪、会话结束后什么还能留下。
 

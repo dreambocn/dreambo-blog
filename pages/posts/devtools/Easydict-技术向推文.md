@@ -8,8 +8,9 @@ categories:
 tags:
   - Easydict
   - 翻译
+description: "介绍 macOS 翻译客户端 Easydict 的多引擎聚合设计，梳理取词入口、后端接口、安装方式和使用评估。"
 ---
-# Easydict：macOS 下的多引擎聚合翻译客户端
+## Easydict：macOS 下的多引擎聚合翻译客户端
 
 ## 概述
 

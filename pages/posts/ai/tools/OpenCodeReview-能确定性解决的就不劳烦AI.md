@@ -8,8 +8,9 @@ categories:
 tags:
   - opencode
   - 代码审查
+description: "介绍 OpenCodeReview 将确定性检查与 AI Agent 结合的评审架构，分析通用 Agent 评审的难点、工程校验的分工和适用范围。"
 ---
-# OpenCodeReview：能确定性解决的，就不劳烦 AI
+## OpenCodeReview：能确定性解决的，就不劳烦 AI
 
 ## 概述
 

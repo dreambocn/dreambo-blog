@@ -8,8 +8,9 @@ categories:
 tags:
   - DeepSeek
   - 插件
+description: "盘点 DeepSeek Harness 周边的插件目录、清单站与工具，比较 bundle、profile 和社区市场的组织方式，以及发现插件和建立信任的难点。"
 ---
-# 官方不做插件市场，于是社区做了六个
+## 官方不做插件市场，于是社区做了六个
 
 DSH（DeepSeek Harness）插件生态盘点，数据截至 2026-08-20。主角是 awesome-dsh-plugin，
 但更有意思的是它周围那一圈东西，以及它们对同一个问题给出的完全不同的答案。

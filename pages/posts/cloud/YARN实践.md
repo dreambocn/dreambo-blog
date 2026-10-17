@@ -8,8 +8,9 @@ categories:
 tags:
   - YARN
   - Hadoop
+description: "通过 YARN 命令和 WordCount 案例查看任务运行，整理生产环境核心参数、容量调度器多队列配置与资源调度实践。"
 ---
-# YARN实践
+## YARN实践
 
 ## 一、 Yarn资源调度器
 
@@ -23,7 +24,7 @@ tags:
 [atguigu@hadoop101 hadoop-3.4.1]$ hadoop jar ./share/hadoop/mapreduce/hadoop-mapreduce-examples-3.4.1.jar wordcount /input /output
 ```
 
-![image-20241225105405449](https://s2.loli.net/2024/12/25/48ZOxV9NblSKD2y.png)
+![image-20241225105405449](https://picture.dreambo.cn/2026/10/17/23/48ZOxV9NblSKD2y-50926934ecfafecaf8de930337261095.png)
 
 ####  1.1 yarn application 查看任务
 
@@ -33,7 +34,7 @@ tags:
    [atguigu@hadoop101 hadoop-3.4.1]$ yarn application -list
    ```
 
-   ![image-20241225105607799](https://s2.loli.net/2024/12/25/EkPaqGRgAhfKreD.png)
+   ![image-20241225105607799](https://picture.dreambo.cn/2026/10/17/23/EkPaqGRgAhfKreD-5596f93aa13e71c068e85a61998dfa7c.png)
 
 2. 根据Application 状态过滤：yarn application -list -appStates （所有状态：ALL、NEW、 NEW_SAVING、SUBMITTED、ACCEPTED、RUNNING、FINISHED、FAILED、KILLED）
 
@@ -41,7 +42,7 @@ tags:
    [atguigu@hadoop101 hadoop-3.4.1]$ yarn application -list -appStates FINISHED
    ```
 
-   ![image-20241225105820582](https://s2.loli.net/2024/12/25/TlfFguRbUB2vyPj.png)
+   ![image-20241225105820582](https://picture.dreambo.cn/2026/10/17/23/TlfFguRbUB2vyPj-4a8f7ca450ab3fecdf67a3ef3253055e.png)
 
 3. Kill掉Application： 
 
@@ -49,7 +50,7 @@ tags:
    [atguigu@hadoop101 hadoop-3.4.1]$ yarn application -kill application_1735094721131_0001
    ```
 
-   ![image-20241225105941429](https://s2.loli.net/2024/12/25/BpkGF5I1ThodvJW.png)
+   ![image-20241225105941429](https://picture.dreambo.cn/2026/10/17/23/BpkGF5I1ThodvJW-249f946ed31d47279ee962e6e4720203.png)
 
 ####  1.2 yarn logs查看日志
 
@@ -59,7 +60,7 @@ tags:
    yarn logs -applicationId application_1735094721131_0001
    ```
 
-   ![image-20241225110320987](https://s2.loli.net/2024/12/25/Ij3SpYB1O8k2sdC.png)
+   ![image-20241225110320987](https://picture.dreambo.cn/2026/10/17/23/Ij3SpYB1O8k2sdC-706b81688dc53e2424408582db15d04e.png)
 
 2. 查询Container日志：yarn logs -applicationId  -containerId 
 
@@ -67,7 +68,7 @@ tags:
     yarn logs -applicationId application_1735094721131_0001 -containerId container_1735094721131_0001_01_000001
    ```
 
-   ![image-20241225110730922](https://s2.loli.net/2024/12/25/6LbnytJiHDdYsvw.png)
+   ![image-20241225110730922](https://picture.dreambo.cn/2026/10/17/23/6LbnytJiHDdYsvw-4e91e4169e692a49c0e89dd44fec8422.png)
 
 #### 1.3 yarn applicationattempt查看尝试运行的任务
 
@@ -77,7 +78,7 @@ tags:
    [atguigu@hadoop101 hadoop-3.4.1]$ yarn applicationattempt -list application_1735094721131_0001
    ```
 
-   ![image-20241225110905615](https://s2.loli.net/2024/12/25/AZgQhnKy5UjrpSm.png)
+   ![image-20241225110905615](https://picture.dreambo.cn/2026/10/17/23/AZgQhnKy5UjrpSm-a40561e3125f326c8209b83b72e59660.png)
 
 2. 打印ApplicationAttemp状态：yarn applicationattempt -status 
 
@@ -85,7 +86,7 @@ tags:
    [atguigu@hadoop101 hadoop-3.4.1]$ yarn applicationattempt -status appattempt_1735094721131_0001_000001
    ```
 
-   ![image-20241225111035703](https://s2.loli.net/2024/12/25/zBgUoAZdPcNDRqL.png)
+   ![image-20241225111035703](https://picture.dreambo.cn/2026/10/17/23/zBgUoAZdPcNDRqL-9e0ec1cec9d6e86fe8e812d7a576e488.png)
 
 #### 1.4 yarn container查看容器
 
@@ -95,7 +96,7 @@ tags:
    yarn container -list appattempt_1735094721131_0001_000001
    ```
 
-   ![image-20241225111234575](https://s2.loli.net/2024/12/25/RXbZHjWYTspPLoB.png)
+   ![image-20241225111234575](https://picture.dreambo.cn/2026/10/17/23/RXbZHjWYTspPLoB-2941f8309a4e759949fdec8d3582b85f.png)
 
 2. 打印Container状态： yarn container -status
 
@@ -103,7 +104,7 @@ tags:
    yarn container -status container_1735094721131_0001_01_000001 
    ```
 
-   ![image-20241225111325244](https://s2.loli.net/2024/12/25/96WYOVshfDXKuEm.png)
+   ![image-20241225111325244](https://picture.dreambo.cn/2026/10/17/23/96WYOVshfDXKuEm-dc02d0a68def26ba642ebf41441a952b.png)
 
    由于该任务没有运行所有显示不存在。
 
@@ -111,19 +112,19 @@ tags:
 
 列出所有节点：yarn node -list -all 
 
-![image-20241225111446174](https://s2.loli.net/2024/12/25/c2NGxTHwltPpvEC.png)
+![image-20241225111446174](https://picture.dreambo.cn/2026/10/17/23/c2NGxTHwltPpvEC-3d626eb11060fba79d74d2d559d7ec2f.png)
 
 #### 1.6 yarn rmadmin更新配置
 
 加载队列配置：yarn rmadmin -refreshQueues
 
-![image-20241225111508963](https://s2.loli.net/2024/12/25/VLd4PokRrhSlw2Y.png)
+![image-20241225111508963](https://picture.dreambo.cn/2026/10/17/23/VLd4PokRrhSlw2Y-737fcbf5ce3ddc5233899eda0e94a8e0.png)
 
 #### 1.7 yarn queue查看队列
 
 打印队列信息：yarn queue -status  default
 
-![image-20241225111550982](https://s2.loli.net/2024/12/25/MdiNRgSLatOHYF3.png)
+![image-20241225111550982](https://picture.dreambo.cn/2026/10/17/23/MdiNRgSLatOHYF3-7a83ff08eef3555b2ea191f8a0d2e41e.png)
 
 ## 二、 Yarn案例实操
 
@@ -238,11 +239,11 @@ tags:
    </property> 
    ```
 
-   ![image-20241225112934828](https://s2.loli.net/2024/12/25/kBmw48czDfWe32G.png)
+   ![image-20241225112934828](https://picture.dreambo.cn/2026/10/17/23/kBmw48czDfWe32G-e01b5a9afd2db3e63a4d1062472bd303.png)
 
 4. 分发配置
 
-   ![image-20241225113156381](https://s2.loli.net/2024/12/25/BMj9GfNkSiV4nsY.png)
+   ![image-20241225113156381](https://picture.dreambo.cn/2026/10/17/23/BMj9GfNkSiV4nsY-4e7ee362bb6da35bca4605046563ab18.png)
 
 5. 重启集群
 
@@ -251,7 +252,7 @@ tags:
    [atguigu@hadoop101 hadoop]$ myhadoop.sh start
    ```
 
-   ![image-20241225113310232](https://s2.loli.net/2024/12/25/eQhTY5s9OPxirfb.png)
+   ![image-20241225113310232](https://picture.dreambo.cn/2026/10/17/23/eQhTY5s9OPxirfb-e4f9da29060f2f386069d36704317401.png)
 
 6. 执行WordCount程序 
 
@@ -259,11 +260,11 @@ tags:
    [atguigu@hadoop101 hadoop-3.4.1]$ hadoop jar ./share/hadoop/mapreduce/hadoop-mapreduce-examples-3.4.1.jar wordcount /input /output
    ```
 
-   ![image-20241225114752329](https://s2.loli.net/2024/12/25/26BUjKNwvu3GAJ1.png)
+   ![image-20241225114752329](https://picture.dreambo.cn/2026/10/17/23/26BUjKNwvu3GAJ1-fc9528a572f90c1ce0379e7070f51b36.png)
 
 7. 观察Yarn任务执行页面
 
-   ![image-20241225114801385](https://s2.loli.net/2024/12/25/32LB4vYaijNkOz8.png)
+   ![image-20241225114801385](https://picture.dreambo.cn/2026/10/17/23/32LB4vYaijNkOz8-6d77587025f6142ede63bc7d3a61068b.png)
 
 ### 2.2 容量调度器多队列提交案例
 
@@ -367,11 +368,11 @@ tags:
 
 2. 分发配置文件
 
-   ![image-20241225115935834](https://s2.loli.net/2024/12/25/akeRjvSBxFlYToP.png)
+   ![image-20241225115935834](https://picture.dreambo.cn/2026/10/17/23/akeRjvSBxFlYToP-7bff7a86de35cd11de23b7917ce13986.png)
 
 3. 重启Yarn或者执行yarn rmadmin -refreshQueues刷新队列，就可以看到两条队列：
 
-   ![image-20241225134113324](https://s2.loli.net/2024/12/25/OzJNAgfWTjv9Zke.png)
+   ![image-20241225134113324](https://picture.dreambo.cn/2026/10/17/23/OzJNAgfWTjv9Zke-781e2e4720f114ff685b1c7db08505eb.png)
 
 #### 向Hive队列提交任务
 
@@ -381,13 +382,13 @@ hadoop jar的方式
 [atguigu@hadoop101 hadoop-3.4.1]$ hadoop jar ./share/hadoop/mapreduce/hadoop-mapreduce-examples-3.4.1.jar wordcount -Dmapreduce.job.queuename=hive /input /output
 ```
 
-![image-20241225134614912](https://s2.loli.net/2024/12/25/SKQsg2mlfIBCr9F.png)
+![image-20241225134614912](https://picture.dreambo.cn/2026/10/17/23/SKQsg2mlfIBCr9F-df737ce1c4f157190c863f152bb09e22.png)
 
 #### 任务优先级
 
 1. 修改yarn-site.xml文件，增加以下参数 
 
-   ![image-20241225134806927](https://s2.loli.net/2024/12/25/dqy4bp8C5UGcTh6.png)
+   ![image-20241225134806927](https://picture.dreambo.cn/2026/10/17/23/dqy4bp8C5UGcTh6-3c7a9d21ddae57a3d9643b714a533252.png)
 
 2. 分发配置，并重启Yarn 
 
@@ -399,7 +400,7 @@ hadoop jar的方式
 
 3. 模拟资源紧张环境
 
-   ![image-20241225135727647](https://s2.loli.net/2024/12/25/VIDOjbmpfRr1a3W.png)
+   ![image-20241225135727647](https://picture.dreambo.cn/2026/10/17/23/VIDOjbmpfRr1a3W-1e033175b7d1dad868a0dd07f742fa56.png)
 
 4. 再次重新提交优先级高的任务
 
@@ -407,7 +408,7 @@ hadoop jar的方式
    hadoop jar /opt/module/hadoop-3.4.1/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.4.1.jar pi -D mapreduce.job.priorty=5 5 200000
    ```
 
-   ![image-20241225140001619](https://s2.loli.net/2024/12/25/1xc7uPwGdNYUe8R.png)
+   ![image-20241225140001619](https://picture.dreambo.cn/2026/10/17/23/1xc7uPwGdNYUe8R-be9d6c20420d3c6e4f9c5ab7187ab5e5.png)
 
 5. 也可以通过以下命令修改正在执行的任务的优先级。 
 
@@ -441,7 +442,7 @@ hadoop jar的方式
    </property>
    ```
 
-   ![image-20241225141214203](https://s2.loli.net/2024/12/25/PoF6p7TqDnzf5aN.png)
+   ![image-20241225141214203](https://picture.dreambo.cn/2026/10/17/23/PoF6p7TqDnzf5aN-d6009b9016acc9447966b522c140ac01.png)
 
 2. 配置fair-scheduler.xml
 
@@ -497,11 +498,11 @@ hadoop jar的方式
    </allocations> 
    ```
 
-   ![image-20241225140614785](https://s2.loli.net/2024/12/25/IoODaEdiwM65jRz.png)
+   ![image-20241225140614785](https://picture.dreambo.cn/2026/10/17/23/IoODaEdiwM65jRz-e44587acb6dbd54d5eda4dd2849d9909.png)
 
 3. 分发配置并重启Yarn 
 
-   <img src="https://s2.loli.net/2024/12/25/2hFlzdnLHsfVjYG.png" alt="image-20241225140634441" style="zoom:67%;" />
+   <img src="https://picture.dreambo.cn/2026/10/17/23/2hFlzdnLHsfVjYG-aff88e588c7cd07dcad5799d67231ba1.png" alt="image-20241225140634441" style="zoom:67%;" />
 
    ```
    [atguigu@hadoop101 hadoop]$ myhadoop.sh stop
@@ -516,8 +517,8 @@ hadoop jar的方式
    hadoop jar /opt/module/hadoop-3.4.1/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.4.1.jar pi -Dmapreduce.job.queuename=root.syb 1 1
    ```
 
-   ![image-20241225142142508](https://s2.loli.net/2024/12/25/lXdmnQMbz8T2SjK.png)
+   ![image-20241225142142508](https://picture.dreambo.cn/2026/10/17/23/lXdmnQMbz8T2SjK-62dff0833b52929531dc2b4bccb7f960.png)
 
 2. 提交任务时不指定队列，按照配置规则，任务会到root.atguigu.atguigu队列
 
-   ![image-20241225142225084](https://s2.loli.net/2024/12/25/cka9d6fbouGpL7F.png)
+   ![image-20241225142225084](https://picture.dreambo.cn/2026/10/17/23/cka9d6fbouGpL7F-0de14b2ad2216c9bc1c7928938f6fa78.png)

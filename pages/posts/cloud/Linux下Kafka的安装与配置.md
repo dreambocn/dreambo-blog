@@ -8,6 +8,7 @@ categories:
 tags:
   - Kafka
   - 部署
+description: "记录 Linux 环境下 Kafka 的下载、解压和环境变量配置，整理 ZooKeeper 与 Kafka 服务启动以及 Topic 创建的验证步骤。"
 ---
 ## Linux下Kafka的安装与配置
 
@@ -21,7 +22,7 @@ tags:
 wget https://archive.apache.org/dist/kafka/2.8.2/kafka_2.13-2.8.2.tgz
 ```
 
-![image-20240416101158798](https://s2.loli.net/2024/04/16/cKXsQ7bYCdo4xjT.png)
+![image-20240416101158798](https://picture.dreambo.cn/2026/10/17/23/cKXsQ7bYCdo4xjT-ad6a7fb37648f267ea630525c2449b25.png)
 
 解压缩
 
@@ -83,34 +84,34 @@ zookeeper.connect=localhost:12181
 bin/zookeeper-server-start.sh config/zookeeper.properties 1>/dev/null 2>&1 &
 ```
 
-![image-20240418220658299](https://s2.loli.net/2024/04/18/3lFZ5fJvWd76X2w.png)
+![image-20240418220658299](https://picture.dreambo.cn/2026/10/17/23/3lFZ5fJvWd76X2w-300ed42fed8f9ca9a6d1cba61292776f.png)
 
 ```
 # 启动kafka
 bin/kafka-server-start.sh config/server.properties 1>/dev/null 2>&1 &
 ```
 
-![image-20240418220826759](https://s2.loli.net/2024/04/18/ArHMvnKDXL4Ih26.png)
+![image-20240418220826759](https://picture.dreambo.cn/2026/10/17/23/ArHMvnKDXL4Ih26-a3d11e429f131074592f45ee018100e2.png)
 
 ```
 # 创建Topic
 bin/kafka-topics.sh --create --zookeeper localhost:12181 --replication-factor 1 --partitions 1 --topic pk1
 ```
 
-![image-20240418220719511](https://s2.loli.net/2024/04/18/8XThcWy3NmnKzqd.png)
+![image-20240418220719511](https://picture.dreambo.cn/2026/10/17/23/8XThcWy3NmnKzqd-287e15828771a35792734384ffd77f22.png)
 
 ```
 # 模拟生产者发送消息
 bin/kafka-console-producer.sh --broker-list localhost:19093 --topic pk1
 ```
 
-![image-20240418220906322](https://s2.loli.net/2024/04/18/4XyzHwg8TU2f9lO.png)
+![image-20240418220906322](https://picture.dreambo.cn/2026/10/17/23/4XyzHwg8TU2f9lO-f14b0aafc1378b56101f3c304a3e4441.png)
 
 ```
 # 模拟消费者接受消息
 bin/kafka-console-consumer.sh --bootstrap-server localhost:19093 --topic pk1
 ```
 
-![image-20240418220924148](https://s2.loli.net/2024/04/18/tFREHycTZCgeNjV.png)
+![image-20240418220924148](https://picture.dreambo.cn/2026/10/17/23/tFREHycTZCgeNjV-f0ff373d69e0fa7d3aa8ff9c4136d993.png)
 
 ·

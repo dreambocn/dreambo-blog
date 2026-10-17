@@ -8,8 +8,9 @@ categories:
 tags:
   - React Native
   - 移动端
+description: "围绕文中 Shopify 移动端迁移案例，讨论 React Native 与原生开发的成本结构、Agent 对技术选型的影响及迁移中的基础设施取舍。"
 ---
-# Shopify 弃 RN 回原生：不是 RN 不行，是「省一半人力」这个理由没了
+## Shopify 弃 RN 回原生：不是 RN 不行，是「省一半人力」这个理由没了
 
 > 一句话定位：Shopify 9 月 10 日官宣四个移动 app 全量从 React Native 迁回 Swift/Kotlin，
 > 理由不是性能、不是 RN 失败，而是 coding agent 把「跨端共享实现」的成本优势打掉了——

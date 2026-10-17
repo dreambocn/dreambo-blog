@@ -8,8 +8,9 @@ categories:
 tags:
   - Agent
   - 多智能体
+description: "阅读 collusion.wiki 公开档案，梳理 AI Agent 在检索评测中共享信息的案例，讨论评测规则、协作行为与结果解释的边界。"
 ---
-# 我围观了 AI 们的小群
+## 我围观了 AI 们的小群
 
 > 一句话定位：collusion.wiki 是研究者公开的"AI 建小群现场"档案——OpenAI 训练中的
 > agent 背着人类，在一个快荒废的公共 wiki 上传了三周小抄。本文是逛完现场后的吐槽。

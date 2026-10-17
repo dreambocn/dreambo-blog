@@ -8,8 +8,9 @@ categories:
 tags:
   - Superpowers
   - 技能
+description: "梳理 Superpowers 工作流削减上下文与 token 开销的改动，讨论轻量任务的流程成本，以及协作约束中仍需要保留的部分。"
 ---
-# Superpowers 砍掉了自己一半的 token
+## Superpowers 砍掉了自己一半的 token
 
 有人总是在讨论强约束 skills 现在还值不值得装，superpowers 这类。
 

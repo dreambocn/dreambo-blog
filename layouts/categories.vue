@@ -9,12 +9,7 @@ const frontmatter = useFrontmatter()
 const categories = useCategories()
 const { $tO } = useValaxyI18n()
 
-const pageIcon = computed(() => {
-  if (!frontmatter.value.icon)
-    // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-    frontmatter.value.icon = 'i-ri-folder-2-line'
-  return frontmatter.value.icon
-})
+const pageIcon = computed(() => frontmatter.value.icon || 'i-ri-folder-2-line')
 </script>
 
 <template>

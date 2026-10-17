@@ -8,8 +8,9 @@ categories:
 tags:
   - Anthropic
   - 生态
+description: "分析 Claude 社区插件市场的只读镜像与提交流程，结合 MCP 启动命令和 GitHub Actions，讨论版本固定、供应链与权限边界。"
 ---
-# Anthropic 把插件市场的 PR 入口关了
+## Anthropic 把插件市场的 PR 入口关了
 
 `anthropics/claude-plugins-community` 是 Claude Code 和 Claude Cowork 的社区插件市场，
 2026 年 3 月建仓，截至 8 月 24 日上架 2,282 个插件条目。它的 README 说自己是「只读镜像」，

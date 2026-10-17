@@ -8,8 +8,9 @@ categories:
 tags:
   - Java
   - 面试
+description: "整理 Java 基础面试中的易忘知识，比较成员变量和局部变量，回顾类与实例的关系以及反射的应用场景。"
 ---
-# Java基础面试题
+## Java基础面试题
 
 ## 变量
 

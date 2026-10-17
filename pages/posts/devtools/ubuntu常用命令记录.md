@@ -8,6 +8,7 @@ categories:
 tags:
   - Linux
   - Ubuntu
+description: "整理 Ubuntu 日常运维命令，涵盖 Java 版本切换、Docker 服务管理和 ZooKeeper 容器进程的查看、启动、停止与重启。"
 ---
 ## java相关
 

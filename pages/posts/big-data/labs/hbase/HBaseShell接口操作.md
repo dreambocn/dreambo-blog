@@ -8,6 +8,7 @@ categories:
 tags:
   - HBase
   - 实验
+description: "整理 HBase Shell 实验中的常用命令，覆盖服务启动、基础信息查询和表数据操作，帮助理解命令行接口的使用流程。"
 ---
 ### 一、 实验目的
 
@@ -37,45 +38,45 @@ tags:
 
 #### 5.1、启动Hadoop、Hbase、Zookeeper服务
 1.启动hadoop
-![image.png](https://s2.loli.net/2025/05/06/cgWH8UifQCSabuK.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/cgWH8UifQCSabuK-33035813d392a5f6d9b2c2c93aae896c.png)
 2.启动zookeeper和Hbase
-![image.png](https://s2.loli.net/2025/05/06/9kVpbLD5mFUYgdK.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/9kVpbLD5mFUYgdK-54ca0792abcbf791778f2a4734d35486.png)
 
 #### 5.2、HBase Shell Gerneral 命令
 1.进入hbase的命令行模式
-![image.png](https://s2.loli.net/2025/05/06/pGOzxTH14AQNjYR.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/pGOzxTH14AQNjYR-be933f58d0b248c43d13c7feba3d8d1b.png)
 2.查询当前服务器状态
-![image.png](https://s2.loli.net/2025/05/06/zOQ8iWEbtvJcsq1.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/zOQ8iWEbtvJcsq1-32a1ec857b4630411619da4c1b4ad192.png)
 3.查看当前版本
-![image.png](https://s2.loli.net/2025/05/06/Y7uazkHvyADfWEm.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/Y7uazkHvyADfWEm-bec0f1027be37d9cafc570f1b72317b4.png)
 4.查询当前的hbase用户
-![image.png](https://s2.loli.net/2025/05/06/jrv4kPIqE15leMt.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/jrv4kPIqE15leMt-233d29755507d8d6f3bf45f2f854a0a1.png)
 
 #### 5.3、HBase Shell 常用操作
 1.查看帮助，在hbase shell命令行模式下输入”help”
-![image.png](https://s2.loli.net/2025/05/06/TqVsGxzlp3eNZvR.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/TqVsGxzlp3eNZvR-d99e27836050d6604ea4d71324847ba7.png)
 2.查看`create`的帮助指令
-![image.png](https://s2.loli.net/2025/05/06/huBZe2G5Kqs6D9J.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/huBZe2G5Kqs6D9J-a971c12ea74b61a840a8a1e221e1a943.png)
 3.创建“test”表，并指定列簇“cf”
-![image.png](https://s2.loli.net/2025/05/06/fq8wxSMHdt9lWgo.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/fq8wxSMHdt9lWgo-0c5323c50940d5a883d4717fe6824d89.png)
 
 >[!TIP]
 >使用create创建新表时，必须指定表名和列族
 
 4.查询创建的表
-![image.png](https://s2.loli.net/2025/05/06/PacoX3JgtBrMKhm.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/PacoX3JgtBrMKhm-d66e0fb86e96fd9d42708269f4e5606c.png)
 
 5.查询表的详细信息
-![image.png](https://s2.loli.net/2025/05/06/r9FGJ5epMzL2oUO.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/r9FGJ5epMzL2oUO-0ab16885a3affeb811f64540292b2f7e.png)
 
 6.插入数据
-![image.png](https://s2.loli.net/2025/05/06/Vjpq1OAkSevNzou.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/Vjpq1OAkSevNzou-b01241f117600dfb9fe60990a9a6612b.png)
 
 7.扫描所有数据信息
-![image.png](https://s2.loli.net/2025/05/06/SFEW3zjifw7c5V8.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/SFEW3zjifw7c5V8-ea3b1d849cdcd5dfcef1b1ae8e6acc65.png)
 
 8.退出Hbase Shell
-![image.png](https://s2.loli.net/2025/05/06/B61ghVvtXxGpfWl.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/B61ghVvtXxGpfWl-fa6d98474d5839e40d79d795ad98c3c2.png)
 
 9.停止hbase服务
-![image.png](https://s2.loli.net/2025/05/06/RFlvNsZmxMkDAr7.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/RFlvNsZmxMkDAr7-8b519140e4de387ae4e90cd9bb39280e.png)

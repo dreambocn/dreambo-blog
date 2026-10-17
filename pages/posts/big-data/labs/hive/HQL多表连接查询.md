@@ -10,6 +10,7 @@ tags:
   - HQL
   - SQL
   - 实验
+description: "通过 Hive 多表连接实验整理 HQL 查询方式，结合数据表关联条件和执行结果，理解多表数据组合的处理过程。"
 ---
 ### 一、 实验目的
 
@@ -40,26 +41,26 @@ tags:
 
 #### 5.1、启动Hadoop服务和Hive服务，并创建表数据
 注意：需要在配置文件/etc/profile中注释掉Hadoop3的相关环境变量设置，然后执行命令【source /etc/profile】，让配置的profile文件立刻生效。  
-  ![image.png](https://s2.loli.net/2025/05/09/3giMXWJEbC9s1Gw.png)
+  ![image.png](https://picture.dreambo.cn/2026/10/17/23/3giMXWJEbC9s1Gw-c3e2c67562bf37b022b6a2ef847379dd.png)
 
 1、启动Hadoop：
-![image.png](https://s2.loli.net/2025/05/09/t8b69NZpEqO2d5e.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/t8b69NZpEqO2d5e-7cd58b6ecb8d6dcd363c88277417ff26.png)
 
 2、进入hive安装目录，打开hive
-![image.png](https://s2.loli.net/2025/05/09/QiLtspWT4MoNekc.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/QiLtspWT4MoNekc-7cb2416ec6acbee40d3b01175b631d75.png)
 3、创建表  
 创建员工信息表“employee”，分为员工名称、职务、入职日期、工资、绩效、部门编号五个字段，数据格式以“，”分割：
-![image.png](https://s2.loli.net/2025/05/09/LzRpTZdClrM5vou.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/LzRpTZdClrM5vou-70b748ac08f981d72d5de07a6fabcfdc.png)
 创建部门表“department”，分为部门编号、部门、所在城市三个字段，数据格式以“，”分割：
-![image.png](https://s2.loli.net/2025/05/09/s6vpOuCjUNcWtgY.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/s6vpOuCjUNcWtgY-82619f7e645f16e39e37a80948b424ff.png)
 
 4、导入数据
-![image.png](https://s2.loli.net/2025/05/09/cqy9C2OZsTwNhQa.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/cqy9C2OZsTwNhQa-2fb2eaa5680de9f065d34c039335a525.png)
 
 5、查看导入表的数据
-![image.png|475](https://s2.loli.net/2025/05/09/PloCtDGHFczx3wZ.png)
+![image.png|475](https://picture.dreambo.cn/2026/10/17/23/PloCtDGHFczx3wZ-33fcf1df0fe12279c4c31e20e35939fc.png)
 
-![image.png|475](https://s2.loli.net/2025/05/09/BgHZ5FDVR9jQYWn.png)
+![image.png|475](https://picture.dreambo.cn/2026/10/17/23/BgHZ5FDVR9jQYWn-9e5d90041f2e48655cc8ffd79ef2e678.png)
 
 #### 5.2、多表连接查询操作
 1、查询员工姓名和部门  
@@ -67,22 +68,22 @@ tags:
 ```
 select e.name, d.position from employee e join department d on e.deptid=d.deptid;
 ```
-![image.png](https://s2.loli.net/2025/05/09/LwRHWU8NAyj9c4x.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/LwRHWU8NAyj9c4x-c135f193a7f9f71d37945d7a243c1b56.png)
 
 2、查询员工姓名、部门和所在地区，其中“员工信息表”为主表
 ```
 select e.name, d.position, d.location from employee e left join department d on e.deptid=d.deptid;
 ```
-![image.png](https://s2.loli.net/2025/05/09/ns3jZHMWED8p5yf.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/ns3jZHMWED8p5yf-f1f7bee16e322e1a9331392b52974991.png)
 
 3、查询员工姓名、部门和入职日期，其中“员工信息表”为主表
 ```
 select e.name, d.position, e.hiredate from department d right join employee e on e.deptid=d.deptid;
 ```
-![image.png](https://s2.loli.net/2025/05/09/51VHrmkW9EYdFXf.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/51VHrmkW9EYdFXf-901935e7068ee25a39a72e062bed6a53.png)
 
 4、查询员工姓名、职务和入职日期，其中“员工信息表”为主表
 ```
 select e.name, d.position, e.hiredate from department d full join employee e on e.deptid=d.deptid;
 ```
-![image.png](https://s2.loli.net/2025/05/09/xQ98mDhTRLwsFAU.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/xQ98mDhTRLwsFAU-4ba1f4e895a15643d6b011e3f8d61940.png)

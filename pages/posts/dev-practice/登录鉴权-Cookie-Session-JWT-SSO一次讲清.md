@@ -9,8 +9,9 @@ tags:
   - 鉴权
   - Cookie
   - JWT
+description: "从 HTTP 无状态出发，解释 Cookie、Session、JWT 与 SSO 的工作方式，比较登录状态存储、身份传递与权限控制的职责。"
 ---
-# 登录鉴权一次讲清：Cookie、Session、JWT、SSO 与权限
+## 登录鉴权一次讲清：Cookie、Session、JWT、SSO 与权限
 
 ## 作者：梦泽　时间：2026-09-23　
 

@@ -8,8 +8,9 @@ categories:
 tags:
   - DeepSeek
   - Harness
+description: "结合 DeepSeek Harness 的插件与运行结构，分析模型适配、工具、会话、沙箱和 Agent 循环如何组合，记录架构核验与使用观察。"
 ---
-# DeepSeek Harness：把 agent 循环也做成插件之后
+## DeepSeek Harness：把 agent 循环也做成插件之后
 
 ## 概述
 

@@ -8,6 +8,7 @@ categories:
 tags:
   - HBase
   - 实验
+description: "记录 HBase Web UI 管理实验，介绍服务启动后查看 Master 与 RegionServer 节点信息、运行状态和管理页面的方法。"
 ---
 ### 一、 实验目的
 
@@ -39,39 +40,39 @@ tags:
 
 #### 5.1、启动Hadoop、Hbase、Zookeeper服务
 1.启动hadoop
-![image.png](https://s2.loli.net/2025/05/06/eTMJsSa8Fybn7q1.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/eTMJsSa8Fybn7q1-a8bb31d7e85781a49a17b3184a7c844e.png)
 
 2.启动zookeeper和Hbase
-![image.png](https://s2.loli.net/2025/05/06/PQz8TfoRBpJOuHn.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/PQz8TfoRBpJOuHn-e3544c30c30a67e92b6bf42e08c164eb.png)
 
-![image.png](https://s2.loli.net/2025/05/06/ULPrETdVZk7Gaz5.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/ULPrETdVZk7Gaz5-ed57a0bc65f4b7d7a4d938ed4b058365.png)
 
-![image.png](https://s2.loli.net/2025/05/06/T5sZBcwb3SvnLuW.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/T5sZBcwb3SvnLuW-812f0ef1a6cfa654d440658879373c40.png)
 #### 5.2、Master节点的Web管理
 1.在浏览器中输入“localhost:16010”
  可以看到Master节点的运行状态
-![image.png](https://s2.loli.net/2025/05/06/LVBJbZdWkFOxIXv.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/LVBJbZdWkFOxIXv-aa0afffa71d9de9452af5b6bae1fa2a5.png)
 
 2.最下面可以看到Hbase整个集群运行服务信息
-![image.png](https://s2.loli.net/2025/05/06/uxDKQtfkbE6WTl3.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/uxDKQtfkbE6WTl3-6f3bd5392c8d3fb2ee925833598ada2f.png)
 
 3.进入hbase的命令行模式
-![image.png](https://s2.loli.net/2025/05/06/MhtKbNT8DdspaqR.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/MhtKbNT8DdspaqR-d46780c9c35d2c4b41a9a7420af5a99b.png)
 
 4.创建表'syb'
-![image.png](https://s2.loli.net/2025/05/06/BKJGiSWQvyAN5su.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/BKJGiSWQvyAN5su-ce2cd47605d3703ae6507fff111eb661.png)
 
 5.插入数据
-![image.png](https://s2.loli.net/2025/05/06/ln1YLEWhX73cwiC.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/ln1YLEWhX73cwiC-fe24a3da0653d6bbf9b130f29e1a2303.png)
 
 6.刷新网页，可以在Tables处看到新增的表
-![image.png](https://s2.loli.net/2025/05/06/VNxG3gkUXqBbmzo.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/VNxG3gkUXqBbmzo-39862479359f367a75482d84246af289.png)
 
 #### 5.3、RegionServer节点的Web管理
 1.点击ServerName
-![image.png](https://s2.loli.net/2025/05/06/rikoyXK8pRQhJtb.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/rikoyXK8pRQhJtb-8ea0b6dbc276c2893c40dd51a81e2450.png)
 可以获得RegionServer的信息和block信息
-![image.png](https://s2.loli.net/2025/05/06/7IB8XNCfZeqHPdG.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/7IB8XNCfZeqHPdG-9df041cc617004103dceda769af11fdf.png)
 
 2.查看Regions和Tasks的信息
-![image.png](https://s2.loli.net/2025/05/06/kDf1E6GH5xMozjq.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/kDf1E6GH5xMozjq-878db2550665b690276fa5407ac01c8d.png)

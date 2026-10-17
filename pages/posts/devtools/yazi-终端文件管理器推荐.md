@@ -8,8 +8,9 @@ categories:
 tags:
   - yazi
   - 终端
+description: "介绍 Rust 终端文件管理器 yazi 的异步 I/O、文件预览和 Lua 插件机制，整理 shell wrapper 配置及日常文件管理的使用体验。"
 ---
-# yazi：全异步的终端文件管理器
+## yazi：全异步的终端文件管理器
 
 ## 概述
 

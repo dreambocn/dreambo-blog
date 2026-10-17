@@ -8,8 +8,9 @@ categories:
 tags:
   - Agent
   - 架构图
+description: "介绍 archify 如何将自然语言或 Mermaid 转为可校验的 JSON 图规格，生成交互式架构图，并讨论校验收据与适用场景。"
 ---
-# archify-让Agent画出能验证的交互架构图
+## archify-让Agent画出能验证的交互架构图
 
 一句话定位：archify 是一个装进 coding agent 的画图 skill。它把你说的人话（或你已有的 Mermaid）翻译成一份带 schema 的 JSON 规格，校验通过后渲染成单文件交互 HTML——架构图、时序图、工作流、数据流、状态机五种，节点能点、路径能追、能导 PNG。
 

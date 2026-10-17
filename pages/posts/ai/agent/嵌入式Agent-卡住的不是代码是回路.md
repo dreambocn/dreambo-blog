@@ -8,8 +8,9 @@ categories:
 tags:
   - Agent
   - 嵌入式
+description: "对比嵌入式 AI Agent 接入真实硬件的几条路线，分析烧录、调试探针、硬件上下文与验证反馈如何影响固件开发。"
 ---
-# 嵌入式 Agent：卡住的不是代码，是回路
+## 嵌入式 Agent：卡住的不是代码，是回路
 
 2026 年 9 月 10 日，Embedder 和 SEGGER 宣布合作：Embedder 的 AI agent 拿到了 J-Link 与 J-Trace 调试探针的直接控制权。一个 agent 从此可以自己烧录固件、下断点、读寄存器和内存、通过 RTT 看实时输出——失败就接着在真板上调，直到跑通。
 

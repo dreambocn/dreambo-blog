@@ -8,6 +8,7 @@ categories:
 tags:
   - Spark
   - 案例
+description: "结合 Spark 中的 KMeans 聚类和 Naive Bayes 分类案例，梳理算法的执行步骤、数据处理过程与关键计算逻辑。"
 ---
 ## Kmeans算法分析
 
@@ -71,7 +72,7 @@ KMeans 算法的执行过程大致可以分为以下几个步骤：
    当迭代次数达到上限或中心收敛时（本例中预计经过几次迭代中心已经稳定），算法结束，返回 KMeansModel，其记录最终中心、总代价和迭代次数。
 ### RDD依赖关系图
 
-![image.png](https://s2.loli.net/2025/05/06/QTgxN9pGuqEhK6C.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/22/QTgxN9pGuqEhK6C-3ce257539a113a00d1138084f5870195.png)
 
 ### 源码分析
 
@@ -81,18 +82,18 @@ KMeans 算法的执行过程大致可以分为以下几个步骤：
    - 调用 data.mapPartitions 处理每个分区里的 VectorWithNorm 数据，利用 bcCenters 中的中心及其它统计信息（如广播的统计数据 bcStats）为每个数据点计算到各中心的距离。  
    - 在每个分区内，利用 mapPartitions 遍历所有数据点，根据距离找到最近的中心，并对该中心对应的点累加其向量（sums）与权重（clusterWeightSum）。  
    - 最后通过 Iterator.tabulate 构造一个迭代器，每个分区输出 (中心索引, (累加向量, 累加权重)) 的形式。
-   ![image.png](https://s2.loli.net/2025/05/06/n9tdKgUz8wN3FkV.png)
+   ![image.png](https://picture.dreambo.cn/2026/10/17/22/n9tdKgUz8wN3FkV-3cb58e23165afcb1db7b29e5878c433f.png)
 
 
 2. **mapPartitions 与 map 操作**  
-   ![image.png](https://s2.loli.net/2025/05/06/abJslvzLBWfRQgZ.png) 
+   ![image.png](https://picture.dreambo.cn/2026/10/17/22/abJslvzLBWfRQgZ-711cf8fd5a76bceb5ec47d0af0fcc34f.png)
    - `mapPartitions` 对每个分区的数据进行批量处理，减少了每个记录单独调用函数的开销。  
    - 内部使用 `points.foreach` 遍历每个点，使用 distanceMeasureInstance 的方法计算最近中心，并更新累加结果。  
    - 最后使用 `Iterator.tabulate`构造出每个分区对应多个中心的中间汇总结果。
 
 3. **reduceByKey 汇总**  
    后续调用 reduceByKey 对所有分区的统计结果按中心索引进行合并：
-   ![image.png](https://s2.loli.net/2025/05/06/zknYbClxwIsSJpM.png)
+   ![image.png](https://picture.dreambo.cn/2026/10/17/22/zknYbClxwIsSJpM-1020f97417668a6e1955b2f588a2139a.png)
    - 通过 reduceByKey，将来自各分区相同中心索引 (j) 的 (sums, clusterWeightSum) 合并为全局的累加结果。  
    - 其中 axpy 用于执行向量加法操作，将第二个累加向量加到第一个中，以及对权重做简单加和。  
    - 最后 collectAsMap 将所有中心的合并结果收集到驱动节点，用于更新最终的中心向量。
@@ -174,7 +175,7 @@ Naive Bayes 算法的执行过程主要包括以下几个阶段：
 
 两类概率相等，模型会返回其中一个（如返回类别0）。
 ### RDD依赖关系图
-![image.png](https://s2.loli.net/2025/05/06/ABHVzPlJk6vORLr.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/22/ABHVzPlJk6vORLr-d45781774358becc1ef6c90a1298912b.png)
 
 ### 源码分析
 **NaiveBayesModel**  

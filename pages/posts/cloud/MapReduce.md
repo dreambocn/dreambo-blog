@@ -8,8 +8,9 @@ categories:
 tags:
   - MapReduce
   - Hadoop
+description: "整理 MapReduce 编程实验，涵盖 HDFS 与 YARN 环境准备、WordCount、排序和表连接，理解任务提交和 Map、Reduce 的执行过程。"
 ---
-# *MapReduce*编程
+## *MapReduce*编程
 
 - 班级  大数据2201
 - 学号  2211650123
@@ -37,11 +38,11 @@ tags:
 
    准备文件夹存放和编写测试文件
 
-   ![image-20241205165350160](https://s2.loli.net/2024/12/05/Uh2AjfNQpac9mT4.png)
+   ![image-20241205165350160](https://picture.dreambo.cn/2026/10/17/23/Uh2AjfNQpac9mT4-8e76f5d186d765a6b229d2ab7c456ca8.png)
 
    编写测试文件
 
-   ![image-20241205165331860](https://s2.loli.net/2024/12/05/v1iJsncNk4mItZr.png)
+   ![image-20241205165331860](https://picture.dreambo.cn/2026/10/17/23/v1iJsncNk4mItZr-4635561411394dabc3ef9cbad82cf1c1.png)
 
 2. 编写软件
 
@@ -51,7 +52,7 @@ tags:
 
       由于我使用的是hadoop3.4.1版本，所有我的hadoop自带slf4j，为了实现只实现我的log，所有排除hadoop中的slf4j依赖。
 
-      ![image-20241205165549983](https://s2.loli.net/2024/12/05/X5jdtR8fTWCSU3K.png)
+      ![image-20241205165549983](https://picture.dreambo.cn/2026/10/17/23/X5jdtR8fTWCSU3K-978392c65e1de78278f148580eadcf91.png)
 
    3. 在项目的src/main/resources 目录下，新建一个文件，命名为“log4j.properties”，在 文件中填入。  
 
@@ -63,17 +64,17 @@ tags:
 
    5. 编写程序 
 
-       1. 编写Mapper类![image-20241205165856844](https://s2.loli.net/2024/12/05/FJHtnhPd5VMIG9B.png)
+       1. 编写Mapper类![image-20241205165856844](https://picture.dreambo.cn/2026/10/17/23/FJHtnhPd5VMIG9B-1ee4194a55c03178569171a70f656700.png)
 
        2. 编写Reducer类
 
-          ![image-20241205165956055](https://s2.loli.net/2024/12/05/HhoEpiBAXkga3JZ.png)
+          ![image-20241205165956055](https://picture.dreambo.cn/2026/10/17/23/HhoEpiBAXkga3JZ-ffa4c2efc72f020c87ae8902dbd8098b.png)
 
        3. 编写Driver驱动类 
 
           使用linux本地路径作为输入路径，hdfs的文件路径作为输出路径。
 
-          ![image-20241205170115247](https://s2.loli.net/2024/12/05/zSDbLoZwrYxKv8N.png)
+          ![image-20241205170115247](https://picture.dreambo.cn/2026/10/17/23/zSDbLoZwrYxKv8N-96a201a55224836e23381d463ad6a90e.png)
        
 
 3. 调试软件
@@ -82,21 +83,21 @@ tags:
 
    新建运行配置，选择对应的java版本和应用的主程序。然后使用ssh将程序运行于linux主机上。
 
-   <img src="https://s2.loli.net/2024/12/05/AZ8JFOU7C3K4Wol.png" alt="image-20241205170947221" style="zoom:50%;" />
+   <img src="https://picture.dreambo.cn/2026/10/17/23/AZ8JFOU7C3K4Wol-9117a9bc3ae5eb3314781fa80dd72e94.png" alt="image-20241205170947221" style="zoom:50%;" />
 
    运行测试：
 
-   ![image-20241205171446684](https://s2.loli.net/2024/12/05/BsNbRXwe1hzQujZ.png)
+   ![image-20241205171446684](https://picture.dreambo.cn/2026/10/17/23/BsNbRXwe1hzQujZ-cdea11da9a7d8f6e74bbc193b2a60fc4.png)
 
    查看运行结果：
 
-   ![image-20241205171538544](https://s2.loli.net/2024/12/05/8WJP1R7zNrjsZLe.png)
+   ![image-20241205171538544](https://picture.dreambo.cn/2026/10/17/23/8WJP1R7zNrjsZLe-1b9aa4e5c756967e1e89e8c9b386d45e.png)
 
    结果分词正确
 
    如果需要调试应用和本地调试一样，打断点然后调试运行
 
-   ![image-20241205171731986](https://s2.loli.net/2024/12/05/mnU8NKSx2AZ5VCR.png)
+   ![image-20241205171731986](https://picture.dreambo.cn/2026/10/17/23/mnU8NKSx2AZ5VCR-f20606a488dfc91c4e41d84a31e296a1.png)
 
 6. 提交集群测试
 
@@ -138,11 +139,11 @@ tags:
 
    2. 将程序打成jar包 
 
-      ![image-20241205172146876](https://s2.loli.net/2024/12/05/ElRnBQfWerKo2dF.png)
+      ![image-20241205172146876](https://picture.dreambo.cn/2026/10/17/23/ElRnBQfWerKo2dF-0f125d544757f7accb0722ab6ef9e251.png)
 
    3. 修改不带依赖的jar包名称为wc.jar，并拷贝该jar包到Hadoop集群的 /opt/module/hadoop-3.4.1路径。
 
-      ![image-20241205172341044](https://s2.loli.net/2024/12/05/gFybTejiofK2R5L.png)
+      ![image-20241205172341044](https://picture.dreambo.cn/2026/10/17/23/gFybTejiofK2R5L-8ff1f45bc5738b3ee226b93cfd341790.png)
 
    4. 启动Hadoop集群
 
@@ -160,7 +161,7 @@ tags:
       FileOutputFormat.setOutputPath(job, new Path("/songyuanbo/output"));
       ```
    
-      ![image-20241206023556095](https://s2.loli.net/2024/12/06/stcI1uOyB9JYjMg.png)
+      ![image-20241206023556095](https://picture.dreambo.cn/2026/10/17/23/stcI1uOyB9JYjMg-0293b3fd9ade58560469b3708c581f59.png)
 
 ### 3. ReduceJoin案例
 
@@ -170,43 +171,43 @@ tags:
 
    编辑order.txt
 
-   ![image-20241206031129572](https://s2.loli.net/2024/12/06/HhqStZUAE6cNM27.png)
+   ![image-20241206031129572](https://picture.dreambo.cn/2026/10/17/23/HhqStZUAE6cNM27-7b581f1bd7794836be0d327d4bce03ab.png)
 
    编辑pd.txt
 
-   ![image-20241206031146811](https://s2.loli.net/2024/12/06/UlSEkDa1IZOnx6e.png)
+   ![image-20241206031146811](https://picture.dreambo.cn/2026/10/17/23/UlSEkDa1IZOnx6e-deb056467bf0d2b9a4f87cbb8b6bd626.png)
 
    上传到hdfs中方便之后集群运行
 
-   ![image-20241206032600623](https://s2.loli.net/2024/12/06/XhaQ5KOkIAg7old.png)
+   ![image-20241206032600623](https://picture.dreambo.cn/2026/10/17/23/XhaQ5KOkIAg7old-d7c1f7b2d0158a5ae686dbe7432d26e4.png)
 
 2. 代码实现
 
    （1）创建商品和订单合并后的TableBean类（代码过长，简要展示）
 
-   ![image-20241206024958582](https://s2.loli.net/2024/12/06/7hjckRfK1Lql4Ht.png)
+   ![image-20241206024958582](https://picture.dreambo.cn/2026/10/17/23/7hjckRfK1Lql4Ht-816b0bb7fa38f22e41930498b0586a68.png)
 
    （2）编写TableMapper类（代码过长，简要展示）
 
-   ![image-20241206025102121](https://s2.loli.net/2024/12/06/sKiFtwXG7NjVaDv.png)
+   ![image-20241206025102121](https://picture.dreambo.cn/2026/10/17/23/sKiFtwXG7NjVaDv-37728f8e5aebad26637ffddd0e1a1d49.png)
 
    （3）编写TableReducer类（代码过长，简要展示）
 
-   ![image-20241206025121124](https://s2.loli.net/2024/12/06/45CKyLdn3cPphl7.png)
+   ![image-20241206025121124](https://picture.dreambo.cn/2026/10/17/23/45CKyLdn3cPphl7-77c993d7711b8d5836fe6cc8da84e4ec.png)
 
    （4）编写TableDriver类
 
-   ![image-20241206033353484](https://s2.loli.net/2024/12/06/OBwM7HbsTgcWphU.png)
+   ![image-20241206033353484](https://picture.dreambo.cn/2026/10/17/23/OBwM7HbsTgcWphU-178e5061adcb3e15f5c39a56336dfe91.png)
 
 3. 测试
 
    运行程序
 
-   ![image-20241206033342271](https://s2.loli.net/2024/12/06/4ejQ9gEpZHz2KRa.png)
+   ![image-20241206033342271](https://picture.dreambo.cn/2026/10/17/23/4ejQ9gEpZHz2KRa-82c50b4bd85cfd6a65f0e0cc1a87bd39.png)
 
    查看结果
 
-   ![image-20241206033435948](https://s2.loli.net/2024/12/06/9SDhJIgsQ6KCRfT.png)
+   ![image-20241206033435948](https://picture.dreambo.cn/2026/10/17/23/9SDhJIgsQ6KCRfT-e287da1091d85c0864ad2829249cb69a.png)
 
 4. 集群到部署
 
@@ -214,17 +215,17 @@ tags:
 
    此处更改了输入输出文件路径
 
-   ![image-20241206033650382](https://s2.loli.net/2024/12/06/1gNBuYLwlKFRXQa.png)
+   ![image-20241206033650382](https://picture.dreambo.cn/2026/10/17/23/1gNBuYLwlKFRXQa-18525615829e0e0deeda991dbd149666.png)
 
    虚拟机中
 
-   ![image-20241206033736827](https://s2.loli.net/2024/12/06/5AdvzZnuGLtS1Qc.png)
+   ![image-20241206033736827](https://picture.dreambo.cn/2026/10/17/23/5AdvzZnuGLtS1Qc-5655e76003315802340d33201c833382.png)
 
    运行程序
 
-   ![image-20241206033912080](https://s2.loli.net/2024/12/06/pm5gFU72LPub9zX.png)
+   ![image-20241206033912080](https://picture.dreambo.cn/2026/10/17/23/pm5gFU72LPub9zX-974548ddffd6cfc0dd0523dfc7dfb983.png)
    运行成功查看数据
-   ![image-20241206034020247](https://s2.loli.net/2024/12/06/mCXL4Ngkjz6RGM2.png) 
+   ![image-20241206034020247](https://picture.dreambo.cn/2026/10/17/23/mCXL4Ngkjz6RGM2-38e4bbc5d6d37cb06bf630c0848d9965.png)
 
 ## 四、总结
 
@@ -232,7 +233,7 @@ tags:
 
 使用idea自带工具进行远程调试，原理大概是在windows上编译完成程序后会将文件上传到虚拟机中，使用虚拟机的java环境进行程序运行和调试，然后同步反馈在windows上。达到跟本地调试一样的调试体验。且windows不需要配置任何hadoop环境
 
-![image-20241206034330221](https://s2.loli.net/2024/12/06/5raIXYnDvlH2QTE.png)
+![image-20241206034330221](https://picture.dreambo.cn/2026/10/17/23/5raIXYnDvlH2QTE-ae351bb16b3e710dd7c8c25245af3095.png)
 
 如何解决三张表的连接操作，例如学生选课表。
 

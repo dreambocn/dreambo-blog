@@ -3,10 +3,13 @@ import { defineSiteConfig } from 'valaxy'
 export default defineSiteConfig({
   url: 'https://dreambo.cn/',
   lang: 'zh-CN',
+  languages: ['zh-CN'],
+  timezone: 'Asia/Shanghai',
   title: 'DreamBo\'s Blog',
   subtitle: '',//副标题
   author: {
     name: '梦博',
+    link: 'https://dreambo.cn/about',
     avatar:'/user-avatar.jpg',
     status:
     {
@@ -16,7 +19,7 @@ export default defineSiteConfig({
   },
   mode: 'auto',
   favicon:'/user-avatar.jpg',
-  description: '博客写一点是一点',
+  description: '梦博的个人技术博客，记录 AI Agent、编程工具、后端开发、大数据与云计算的实践、排障经验和学习笔记。',
   // social: [
   //   {
   //     name: 'RSS',

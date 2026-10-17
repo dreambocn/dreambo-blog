@@ -9,6 +9,7 @@ tags:
   - Spark
   - 部署
   - 实验
+description: "记录 Spark on YARN 的集群部署实验，覆盖解压安装、运行配置、Hadoop 启动、测试任务提交与 Web UI 信息查看。"
 ---
 **1、实验目的**
 
@@ -56,67 +57,67 @@ spark on yarn 模式下Pi 计算示例操作最终效果图：
 6.1.1打开linux命令行终端。
 6.1.2命令行终端中，切换到spark压缩包所在目录/home/zkpk/tgz/spark。
 6.1.3将spark压缩包解压到用户的根目录/home/zkpk下。
-![image.png|500](https://s2.loli.net/2025/05/16/thpIbJ4EGl3iOXA.png)
+![image.png|500](https://picture.dreambo.cn/2026/10/17/23/thpIbJ4EGl3iOXA-a26a94a13457c43a9fbe7e488f47354b.png)
 
 6.2查看解压出的spark目录中的内容。
 6.2.1返回用户根目录/home/zkpk。
 6.2.2进入解压出的spark目录。
 6.2.3查看此目录内容
-![image.png|500](https://s2.loli.net/2025/05/16/rVY2WclBHPCUqoh.png)
+![image.png|500](https://picture.dreambo.cn/2026/10/17/23/rVY2WclBHPCUqoh-efb8f0f1c98faca95f6b9e264d5f693a.png)
 
 6.3配置环境变量。
 6.3.1返回到用户根目录/home/zkpk。
 6.3.2使用vim命令编辑.bash_profile文件。
 6.3.3添加如下三个环境变量在文件末尾，然后保存退出。
 6.3.4运行source命令，重新编译.bash_profile，使添加变量生效。
-![image.png|525](https://s2.loli.net/2025/05/16/JYxDVgGXfo1vCmw.png)
+![image.png|525](https://picture.dreambo.cn/2026/10/17/23/JYxDVgGXfo1vCmw-65bd90d242e6243fcc4df4049105861d.png)
 
-![image.png|375](https://s2.loli.net/2025/05/16/7gXZceCNb2tn3AW.png)
+![image.png|375](https://picture.dreambo.cn/2026/10/17/23/7gXZceCNb2tn3AW-164514f513c86079d1ae13eff7283125.png)
 
 6.3.5有时候我们在启动spark on  
 yarn时会出现内存大小错误，此时job会被强制杀死，为了避免这一情况，我们需要编辑/home/zkpk/hadoop-2.7.3/etc/hadoop目录下的yarn-site.xml文件。
-![image.png](https://s2.loli.net/2025/05/16/BF816Hr54P3Avgp.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/BF816Hr54P3Avgp-27a532896f9b7477d16abb68ba5e0a92.png)
 
 6.3.6在文件中加入以下内容，这里的设置是取消yarn运行模式的运行内存检测，这样就算内存达不到要求也不会kill掉任务。
-![image.png](https://s2.loli.net/2025/05/16/ZwHuC1k5IiqhOXM.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/ZwHuC1k5IiqhOXM-4c915e15ce83da3dd7235491a196b65d.png)
 
 6.3.7将yarn-site.xml文件拷贝到slave01、slave02从节点。
-![image.png](https://s2.loli.net/2025/05/16/jfFYo8zGNt1H4Dm.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/jfFYo8zGNt1H4Dm-8636d7dc4602425fc8fc19a707e934c1.png)
 
 6.4启动Hadoop集群。
 6.4.1在master虚拟机上启动Hadoop集群。
-![image.png](https://s2.loli.net/2025/05/16/fgBcREUPkNyLYoO.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/fgBcREUPkNyLYoO-463ad59df4c4de91eb41fb18be396e2c.png)
 6.4.2在master虚拟机上运行jps，确认NameNode, SecondaryNameNode,ResourceManager进程启动。
-![image.png|500](https://s2.loli.net/2025/05/16/H35lBdrzLmRxTFu.png)
+![image.png|500](https://picture.dreambo.cn/2026/10/17/23/H35lBdrzLmRxTFu-8227540f0c22677b36146fef67510cf1.png)
 6.4.3在slave01虚拟机上运行jps，确认DataNode, NodeManager进程启动。
-![image.png|500](https://s2.loli.net/2025/05/16/oYULV4MupBdjZIs.png)
+![image.png|500](https://picture.dreambo.cn/2026/10/17/23/oYULV4MupBdjZIs-c7dc4de9a60b1fe5a19112a9a09ec51e.png)
 
 6.4.3在slave02虚拟机上运行jps，确认DataNode, NodeManager进程启动。
-![image.png|500](https://s2.loli.net/2025/05/16/1HSg27WMClfXwUE.png)
+![image.png|500](https://picture.dreambo.cn/2026/10/17/23/1HSg27WMClfXwUE-92410bdc442ee49c62172f7e33720a6d.png)
 
 6.5验证spark on yarn安装部署是否生效。
 6.5.1进入spark主目录。
 6.5.2执行spark内置的测试代码。
-![image.png](https://s2.loli.net/2025/05/16/hO5taLARvTkDswV.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/hO5taLARvTkDswV-a16076d4a9c107cad2930d5ef2e66664.png)
 结果：
-![image.png](https://s2.loli.net/2025/05/16/75Tt6qpiJnAceE8.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/75Tt6qpiJnAceE8-638f7059a2d389583727a9db599a5fd4.png)
 
 6.5.3访问Web UI，在master虚拟机的菜单”Application”中 打开浏览器访问spark Web UI界面，在地址栏输入[](http://172.31.151.214/tms-module-adminhttp://master:18088/)，出现类似图6-11界面。
-![image.png](https://s2.loli.net/2025/05/16/vzmE2Neuw3iYkh4.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/vzmE2Neuw3iYkh4-3669eeb1c6b8498b80985267de9f81e7.png)
 
 **7、思考题**
 
 1.请同学们尝试关闭hadoop集群，然后重新启动集群但是不取消安全模式，看是否影响6.5.2步骤的执行？
 不能启动
 因为此时是安全模式，在这个时候文件系统是只读的，不能进行写操作。而用户提交spark作业时spark会创建HDFS临时文件但此时NameNode在安全模式所以操作失败。
-![image.png](https://s2.loli.net/2025/05/16/zCOhvEWQDRdY2K9.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/zCOhvEWQDRdY2K9-15af045cdda991cc7fc553ab72b515cb.png)
 
 2.请同学们尝试不要完整添加6.3.3中的三个环境变量在.bash_profile文件末尾，试问会出现什么效果？
 
 哪怕全注释了也能运行
-![image.png](https://s2.loli.net/2025/05/16/gWmna1bNTKxSktf.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/gWmna1bNTKxSktf-c6c496b66b1e5b88d1bd70ef3ee8f8da.png)
 
-![image.png](https://s2.loli.net/2025/05/16/PdqIGOhgvE2DSfB.png)
+![image.png](https://picture.dreambo.cn/2026/10/17/23/PdqIGOhgvE2DSfB-a6fbade5235d275bdc01f2a3dc483fb1.png)
 
 3.请同学们尝试调整步骤6.5.2命令行中Pi后面的一个参数，看看是否可以得到更接近3.1415926......的结果。
 最后的数字`10`是传递给应用程序`SparkPi`的**计算参数**，用于指定蒙特卡洛方法中随机采样的次数（即生成的点数）。数值越大计算出的结果越精准但是计算时间越长

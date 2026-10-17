@@ -8,8 +8,9 @@ categories:
 tags:
   - HTTP
   - 网络
+description: "整理《图解 HTTP》阅读笔记，从 Web 与 TCP/IP 基础出发，梳理 HTTP 协议、报文结构、状态码及相关网络知识。"
 ---
-# 图解HTTP
+## 图解HTTP
 
 ---
 
@@ -69,7 +70,7 @@ tags:
 
 #### 3. TCP/IP 通信传输流   
 
-​    ![image-20240120023036930](https://s2.loli.net/2024/01/20/dAZkJhlGztQNbyW.png)  
+​    ![image-20240120023036930](https://picture.dreambo.cn/2026/10/17/23/dAZkJhlGztQNbyW-7bd12524a9e1d9a66b5e41e5391ac089.png)\
 
 ### 1.4  与HTTP密切相关的协议
 
@@ -91,7 +92,7 @@ tags:
 
 ### 1.6　各种协议与 HTTP 协议的关系  
 
-​	![image-20240120034147494](https://s2.loli.net/2024/01/20/bx8cytksX3AdWB2.png)  
+​	![image-20240120034147494](https://picture.dreambo.cn/2026/10/17/23/bx8cytksX3AdWB2-8011461103e6f7d9295a64320d6e687a.png)\
 
 ### 1.7　URI 和 URL  
 
@@ -112,7 +113,7 @@ HTTP 协议规定，请求从客户端发出，最后服务器端响应该请求
 
 请求报文是由请求方法、请求 URI、协议版本、可选的请求首部字段和内容实体构成的。  
 
-![image-20240120035322374](https://s2.loli.net/2024/01/20/EQUy4Sp6ZGcP2DF.png)  
+![image-20240120035322374](https://picture.dreambo.cn/2026/10/17/23/EQUy4Sp6ZGcP2DF-a889ec1608669dac66637afaefee3dd2.png)\
 
 响应报文基本上由协议版本、状态码（表示请求成功或失败的数字代码）、用以解释状态码的原因短语、可选的响应首部字段以及实体主体构成。  
 
@@ -231,7 +232,7 @@ HTTP协议通过采用MIME机制来允许同时处理多种数据格式的文件
 
 由于过去的时候并没有高速的网络，所以需要指定下载的实体范围，多次加载，如果完整加载不出来，也可以逐步加载。像这样，指定范围发送的请求叫做范围请求（Range Request）  
 
-![image-20240122020947072](https://s2.loli.net/2024/01/22/yctTozlv3q6JH1M.png)  
+![image-20240122020947072](https://picture.dreambo.cn/2026/10/17/23/yctTozlv3q6JH1M-c667e0772237a082a51a2f526c41b4c1.png)\
 
 执行范围请求时，会用到首部字段 Range 来指定资源的 byte 范围。  
 
@@ -295,7 +296,7 @@ byte 范围的指定形式如下。
 
 状态码的职责是当客户端向服务器端发送请求时，描述返回的请求结果。根据返回的状态码，能知道请求的结果。  
 
-![image-20240122041713540 ](https://s2.loli.net/2024/01/22/79ki6trJbs1aQZu.png)  
+![image-20240122041713540 ](https://picture.dreambo.cn/2026/10/17/23/79ki6trJbs1aQZu-82ca63a13f4131710099829569338282.png)\
 
 ### 4.2　2XX 成功  
 
@@ -425,7 +426,7 @@ HTTP 通信时，除客户端和服务器以外，还有一些用于通信数据
 
    代理服务器的基本行为就是接收客户端发送的请求后转发给其他服务器。代理不改变请求 URI，会直接发送给前方持有资源的目标服务器。  
 
-   ![image-20240122170851935](https://s2.loli.net/2024/01/22/Ru1tsMfG9pWOzHV.png)  
+   ![image-20240122170851935](https://picture.dreambo.cn/2026/10/17/23/Ru1tsMfG9pWOzHV-608abe4d296c16b161a799e9f79b2138.png)\
 
    转发时，需要附加Via 首部字段以标记出经过的主机信息。  
 
@@ -441,7 +442,7 @@ HTTP 通信时，除客户端和服务器以外，还有一些用于通信数据
 
 2. 网关   
 
-   ![image-20240122171153840](https://s2.loli.net/2024/01/22/9LEt1CRFKdHlnoZ.png) 
+   ![image-20240122171153840](https://picture.dreambo.cn/2026/10/17/23/9LEt1CRFKdHlnoZ-6e0b3d3cc50485e8912bc7483fba9fd8.png)
 
    网关的工作机制和代理十分相似。而网关能使通信线路上的服务器提供非 HTTP 协议服务。  
 
@@ -449,7 +450,7 @@ HTTP 通信时，除客户端和服务器以外，还有一些用于通信数据
 
 3. 隧道 
 
-   ![image-20240122171359892](https://s2.loli.net/2024/01/22/VYavF1ny5BRzXmx.png)  
+   ![image-20240122171359892](https://picture.dreambo.cn/2026/10/17/23/VYavF1ny5BRzXmx-bba01dda95f27d49c0976269d50fd903.png)\
 
    隧道可按要求建立起一条与其他服务器的通信线路，届时使用 SSL等加密手段进行通信。隧道的目的是确保客户端能与服务器进行安全的通信。  
 

@@ -8,8 +8,9 @@ categories:
 tags:
   - opencode
   - 评测
+description: "比较 omp 与 opencode 的终端交互、工具组织和产品取舍，通过同一模型处理同一 PR 的表现，讨论 Agent 运行框架对结果的影响。"
 ---
-# omp 与 opencode对比：同一个模型，两份答案
+## omp 与 opencode对比：同一个模型，两份答案
 
 终端 coding agent 里有两把经常被放在一起比的刷子：omp（oh-my-pi）和 opencode。都开源、都 MIT、都宣称 provider 无关，功能清单摊开来像同一个东西的两种皮肤。但有人拿同一个 PR、同一个模型在两边各跑了一遍，两边抓出来的 bug 不重合。这意味着选型没法靠对着功能表打勾解决——壳本身就是答案的一部分。
 

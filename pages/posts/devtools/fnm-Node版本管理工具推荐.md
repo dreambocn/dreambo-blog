@@ -8,8 +8,9 @@ categories:
 tags:
   - fnm
   - Node
+description: "介绍 fnm 的 Node.js 版本管理方式，讨论 nvm 配置兼容、终端启动开销、目录自动切换和跨平台开发环境实践。"
 ---
-# fnm：我现在唯一在用的 Node 版本管理器
+## fnm：我现在唯一在用的 Node 版本管理器
 
 ## 概述
 

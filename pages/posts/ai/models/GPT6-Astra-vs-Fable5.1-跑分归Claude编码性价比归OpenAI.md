@@ -9,8 +9,9 @@ tags:
   - OpenAI
   - Claude
   - 评测
+description: "对照文中时间点的 GPT-6 Astra 与 Claude Fable 5.1 资料，从评测、缓存价格、token 用量与每任务成本讨论模型分工。"
 ---
-# GPT-6 Astra 对 Fable 5.1：跑分是 Claude 的，编码性价比是 OpenAI 的
+## GPT-6 Astra 对 Fable 5.1：跑分是 Claude 的，编码性价比是 OpenAI 的
 
 一句话定位：2026-09-01 和 09-03，Anthropic 与 OpenAI 前后脚发布各自旗舰（Claude Fable 5.1、GPT-6 Astra），两家定价首次完全撞车（$10/$50 每百万 token）。本文把独立跑分、token 用量、每任务成本和一手使用反馈放在一张桌上，回答一个问题：同样的钱，该给谁。
 

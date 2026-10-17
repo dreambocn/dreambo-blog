@@ -8,8 +8,9 @@ categories:
 tags:
   - Agent
   - 安全研究
+description: "梳理 WeWorm 安全研究披露的传播链与开发时间线，讨论 AI 在漏洞研究中的执行能力，以及人工判断和验证仍承担的责任。"
 ---
-# 蠕虫的工期，被 AI 压到了一周
+## 蠕虫的工期，被 AI 压到了一周
 
 > 一句话定位：安全公司 Calif 9 月 8 日公开 WeWorm——首个通过微信通话传播的零点击
 > 蠕虫 demo，跨 iOS 和 Android；AI 两天找到漏洞并写出 RCE，再花一周拼出蠕虫，

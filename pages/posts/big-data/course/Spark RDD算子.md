@@ -8,6 +8,7 @@ categories:
 tags:
   - Spark
   - 大数据
+description: "整理 Spark RDD 的常见转换和行动算子，说明 map、flatMap、分区处理、分组等操作的数据变化方式与使用区别。"
 ---
 1. Map算子：f 为一个函数执行map时,遍历数据并使用 f 产生新RDD
 2. MapPartition：一次处理一个分区数据
