@@ -1,0 +1,14 @@
+[
+  {
+    "source": "docs/images/devices-light.png",
+    "target": "https://picture.dreambo.cn/2026/10/18/00/devices-light-9551e2db9c7475cee453db7c7d38ac30.png",
+    "sha256": "927fd2bb95e395d96f1dc0a20119031d0c04357ce31679f2ceb5b67e3f62ac21",
+    "bytes": 45389
+  },
+  {
+    "source": "docs/native-ui/screenshots/alignment-devices-settings-dark-zh.png",
+    "target": "https://picture.dreambo.cn/2026/10/18/00/alignment-devices-settings-dark-zh-8983fbe334102917d7d5cd79ffe04f6f.png",
+    "sha256": "ae85d006a34741dd4a06e832fd0d13f5fec8772d6daf6ad30d8629dfc2300dc1",
+    "bytes": 53457
+  }
+]
